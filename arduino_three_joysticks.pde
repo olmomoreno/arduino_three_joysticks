@@ -69,7 +69,7 @@ void draw() {
   int fontSize50 = 50;
 
   // Draws Top App Bar
-  noStroke();
+  noStroke(); 
   fill(gray1);
   rect(0, statusBarHeight, width, topAppBarHeight);
 
@@ -83,8 +83,6 @@ void draw() {
     rect(cardIni, statusBarHeight + topAppBarHeight + margin, cardWidth, height - statusBarHeight - topAppBarHeight - (margin * 2), roundCorners);
     cardIni = cardIni + margin + cardWidth;
   }
-
-  
 
   // Draws status bar image
   int iconSize = 16;
