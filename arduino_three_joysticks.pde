@@ -77,8 +77,14 @@ void draw() {
   int numCards = 3;
   int cardWidth = (width - (margin * 4))/numCards;
   int roundCorners = 25;
+  int cardIni = margin;
   fill(gray2);
-  rect(margin, statusBarHeight + topAppBarHeight + margin, cardWidth, height - statusBarHeight - topAppBarHeight - (margin * 2), roundCorners);
+  for (int i = 1; i <= numCards; i++) {
+    rect(cardIni, statusBarHeight + topAppBarHeight + margin, cardWidth, height - statusBarHeight - topAppBarHeight - (margin * 2), roundCorners);
+    cardIni = cardIni + margin + cardWidth;
+  }
+
+  
 
   // Draws status bar image
   int iconSize = 16;
