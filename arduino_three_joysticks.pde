@@ -108,10 +108,17 @@ void draw() {
   textFont(robotoRegular16, fontSize16);
   text(time, margin, statusBarHeight - textOffsetHeight);
 
-  // Writes card title
-  String cardTitle = "Sqr. bounces";
+  // Writes cards titles
+  int cardTextX = margin * 2;
+  String cardTitle = "Thumb joystick";
   textFont(robotoRegular20, fontSize20);
-  text(cardTitle, margin * 2, statusBarHeight + topAppBarHeight + margin + padding28);
+  text(cardTitle, cardTextX, statusBarHeight + topAppBarHeight + margin + padding28);
+  cardTitle = "Thumb slide joy.";
+  cardTextX = cardTextX + margin + cardWidth;
+  text(cardTitle, cardTextX, statusBarHeight + topAppBarHeight + margin + padding28);
+  cardTitle = "5 way tactile sw.";
+  cardTextX = cardTextX + margin + cardWidth;
+  text(cardTitle, cardTextX, statusBarHeight + topAppBarHeight + margin + padding28);
 
   // Writes card subtitle
   String cardSubTitle = "Interactive sketch";
