@@ -15,7 +15,6 @@ PFont robotoRegular12;
 PFont robotoRegular16;
 PFont robotoRegular20;
 PFont robotoRegular24;
-PFont robotoRegular50;
 PFont robotoRegular60;
 
 // Color definitions
@@ -26,25 +25,18 @@ color gray2 = color(83, 83, 83);
 color white = color(255);
 color black = color(0);
 
-// Variable definitions
-float squareX = 200.0;
-int sliderButtonX = 32;
-boolean direction = true;
-boolean overSlider = false;
-boolean locked = false;
-int speedValue = 1;
-
 // Arduino variables
-int joystick1_PotA = 0;
-int joystick1_PotB = 0;
-int joystick1_SwitchA = 0;
-int joystick2_PotA = 0;
-int joystick2_PotB = 0;
-int joystick3_SwitchA = 0;
-int joystick3_SwitchB = 0;
-int joystick3_SwitchC = 0;
-int joystick3_SwitchD = 0;
-int joystick3_SwitchE = 0;
+int[] joystickVal = new int[10];
+// int joystick1_PotA = 0;
+// int joystick1_PotB = 0;
+// int joystick1_SwitchA = 0;
+// int joystick2_PotA = 0;
+// int joystick2_PotB = 0;
+// int joystick3_SwitchA = 0;
+// int joystick3_SwitchB = 0;
+// int joystick3_SwitchC = 0;
+// int joystick3_SwitchD = 0;
+// int joystick3_SwitchE = 0;
 
 void setup() {
 
@@ -63,8 +55,12 @@ void setup() {
   robotoRegular16 = createFont("fonts/Roboto-Regular.ttf", 16);
   robotoRegular20 = createFont("fonts/Roboto-Regular.ttf", 20);
   robotoRegular24 = createFont("fonts/Roboto-Regular.ttf", 24);
-  robotoRegular50 = createFont("fonts/Roboto-Regular.ttf", 50);
   robotoRegular60 = createFont("fonts/Roboto-Regular.ttf", 60);
+
+  // Initialize joystick_val array
+  for(int i = 0; i < joystickVal.length; i++){
+    joystickVal[i] = i;
+  }
 }
 
 void draw() {
@@ -82,7 +78,6 @@ void draw() {
   int fontSize16 = 16;
   int fontSize20 = 20;
   int fontSize24 = 24;
-  int fontSize50 = 50;
   int fontSize60 = 60;
 
   // Draws Top App Bar
@@ -161,21 +156,29 @@ void draw() {
 
   // Writes cards numbers variables
   cardTextX = margin * 2;
-  String joystick = "A: ";
+  String[] joystickPotentiometer = { "A: ", "B: " };
+  int paddingIndex = 4;
+  int joystickValIndex = 0;
   textFont(robotoRegular24, fontSize24);
-  text(joystick + joystick1_PotA, cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * 4));
-  joystick = "B: ";
-  text(joystick + joystick1_PotB, cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * 5));
+  // Text variables for card 1
+  for(int i = 0; i < joystickPotentiometer.length; i++){
+    text(joystickPotentiometer[i] + joystickVal[joystickValIndex], cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * paddingIndex));
+    paddingIndex++;
+    joystickValIndex++;
+  }
+  paddingIndex = 4;
   cardTextX = cardTextX + margin + cardWidth;
-  joystick = "A: ";
-  text(joystick + joystick2_PotA, cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * 4));
-  joystick = "B: ";
-  text(joystick + joystick2_PotB, cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * 5));
+  // Text variables for card 2
+  for(int i = 0; i < joystickPotentiometer.length; i++){
+    text(joystickPotentiometer[i] + joystickVal[joystickValIndex], cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * paddingIndex));
+    paddingIndex++;
+    joystickValIndex++;
+  }
   cardTextX = cardTextX + margin + cardWidth;
-
+  // Text variables for card 3
   int textOffset = 1;
   textFont(robotoRegular60, fontSize60);
-  text(joystick3_SwitchA, cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * 5) - textOffset);
+  text(joystickVal[9], cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * 5) - textOffset);
 
   
   // Writes card number variable subtitle
@@ -186,9 +189,6 @@ void draw() {
     text(cardSubVar[i], cardTextX, statusBarHeight + topAppBarHeight + margin + padding28 * 6);
     cardTextX = cardTextX + margin + cardWidth;
   }
-
-  //fill(255, 0, 0, 127);  
-  //rect(0, statusBarHeight + topAppBarHeight + margin + (padding28 * 3) + 10, width, 46);
 
   // Draws slider line
   strokeWeight(4);
