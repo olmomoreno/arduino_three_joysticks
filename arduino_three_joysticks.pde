@@ -7,6 +7,7 @@
 
 //Images
 PImage rocketIcon;
+PImage xolabLogo;
 PImage joystick_1;
 PImage joystick_2;
 PImage joystick_3;
@@ -41,6 +42,7 @@ void setup() {
 
   // Loads image
   rocketIcon = loadImage("images/rocket_launch_24dp_FFFFFF.png");
+  xolabLogo  = loadImage("images/xolabLogo.png");
   joystick_1 = loadImage("images/thumb_joystick.png");
   joystick_2 = loadImage("images/thumb-slide-joystick.jpeg");
   joystick_3 = loadImage("images/5_way _tactile_switch.jpeg");
@@ -91,6 +93,12 @@ void draw() {
   int iconOffset = 4;
   image(rocketIcon, width - margin - iconSize, iconOffset, iconSize, iconSize);
 
+  // Draws top app bar image
+  int logoWidth = 174;
+  int logoHeight = 39;
+  int logoOffset = 3;
+  image(xolabLogo, (width/2) - (logoWidth/2), statusBarHeight + logoOffset, logoWidth, logoHeight);
+
   // Writes clock time
   int m = minute();  // Values from 0 - 59
   int h = hour();    // Values from 0 - 23
@@ -99,12 +107,6 @@ void draw() {
   fill(white);
   textFont(robotoRegular16, fontSize16);
   text(time, margin, statusBarHeight - textOffsetHeight);
-
-  // Writes Top App Bar text
-//   textOffsetHeight = 15;
-//   String proLab = "Processing Lab";
-//   textFont(robotoRegular24, fontSize24);
-//   text(proLab, margin, statusBarHeight + topAppBarHeight - textOffsetHeight);
 
   // Writes card title
   String cardTitle = "Sqr. bounces";
