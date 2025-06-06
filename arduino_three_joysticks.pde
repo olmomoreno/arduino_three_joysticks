@@ -110,29 +110,36 @@ void draw() {
 
   // Writes cards titles
   int cardTextX = margin * 2;
-  String cardTitle = "Thumb joystick";
+  String[] cardTitle = { "Thumb joystick", "Thumb slide joy.", "5 way tactile sw." };
   textFont(robotoRegular20, fontSize20);
-  text(cardTitle, cardTextX, statusBarHeight + topAppBarHeight + margin + padding28);
-  cardTitle = "Thumb slide joy.";
-  cardTextX = cardTextX + margin + cardWidth;
-  text(cardTitle, cardTextX, statusBarHeight + topAppBarHeight + margin + padding28);
-  cardTitle = "5 way tactile sw.";
-  cardTextX = cardTextX + margin + cardWidth;
-  text(cardTitle, cardTextX, statusBarHeight + topAppBarHeight + margin + padding28);
+  for (int i = 0; i < cardTitle.length; i++) {
+    text(cardTitle[i], cardTextX, statusBarHeight + topAppBarHeight + margin + padding28);
+    cardTextX = cardTextX + margin + cardWidth;
+  }
 
   // Writes card subtitle
-  String cardSubTitle = "Interactive sketch";
+  cardTextX = margin * 2;
+  String[] cardSubTitle = { "2 potentiometers and 1 sw.", "2 potentiometers", "5 switches" };
   textFont(robotoRegular12, fontSize12);
-  text(cardSubTitle, margin * 2, statusBarHeight + topAppBarHeight + margin + (padding28 * 2));
+  for (int i = 0; i < cardSubTitle.length; i++) {
+    text(cardSubTitle[i], cardTextX, statusBarHeight + topAppBarHeight + margin + padding28 * 2);
+    cardTextX = cardTextX + margin + cardWidth;
+  }
 
   // Writes card number variable
   textFont(robotoRegular50, fontSize50);
   text(speedValue, margin * 2, statusBarHeight + topAppBarHeight + margin + (padding28 * 5));
 
   // Writes card number variable subtitle
-  String cardNumVArSub = "Displacement speed";
+  cardTextX = margin * 2;
+  String[] cardSubVar = { "Joystick 1 values", "Joystick 2 values", "Joystick 3 values" };
   textFont(robotoRegular12, fontSize12);
-  text(cardNumVArSub, margin * 2, statusBarHeight + topAppBarHeight + margin + (padding28 * 6));
+  for (int i = 0; i < cardSubVar.length; i++) {
+    text(cardSubVar[i], cardTextX, statusBarHeight + topAppBarHeight + margin + padding28 * 6);
+    cardTextX = cardTextX + margin + cardWidth;
+  }
+
+ 
 
   // Draws slider line
   strokeWeight(4);
