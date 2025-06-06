@@ -6,6 +6,7 @@
 *****************************************************************/
 
 //Images
+PImage rocketIcon;
 PImage joystick_1;
 PImage joystick_2;
 PImage joystick_3;
@@ -39,6 +40,7 @@ void setup() {
   size(600, 400);
 
   // Loads image
+  rocketIcon = loadImage("images/rocket_launch_24dp_FFFFFF.png");
   joystick_1 = loadImage("images/thumb_joystick.png");
   joystick_2 = loadImage("images/thumb-slide-joystick.jpeg");
   joystick_3 = loadImage("images/5_way _tactile_switch.jpeg");
@@ -73,7 +75,7 @@ void draw() {
   fill(gray1);
   rect(0, statusBarHeight, width, topAppBarHeight);
 
-  // Draws cards
+  // Draws cards (3)
   int numCards = 3;
   int cardWidth = (width - (margin * 4))/numCards;
   int roundCorners = 25;
@@ -87,7 +89,7 @@ void draw() {
   // Draws status bar image
   int iconSize = 16;
   int iconOffset = 4;
-  //image(rocketIcon, cardAreaWidth - margin - iconSize, iconOffset, iconSize, iconSize);
+  image(rocketIcon, width - margin - iconSize, iconOffset, iconSize, iconSize);
 
   // Writes clock time
   int m = minute();  // Values from 0 - 59
