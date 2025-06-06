@@ -8,9 +8,7 @@
 //Images
 PImage rocketIcon;
 PImage xolabLogo;
-PImage joystick_1;
-PImage joystick_2;
-PImage joystick_3;
+PImage[] joystick = new PImage[3];
 
 // Sketch's fonts
 PFont robotoRegular12;
@@ -56,9 +54,9 @@ void setup() {
   // Loads image
   rocketIcon = loadImage("images/rocket_launch_24dp_FFFFFF.png");
   xolabLogo  = loadImage("images/xolabLogo.png");
-  joystick_1 = loadImage("images/thumb_joystick.png");
-  joystick_2 = loadImage("images/thumb-slide-joystick.jpeg");
-  joystick_3 = loadImage("images/5_way _tactile_switch.jpeg");
+  joystick[0] = loadImage("images/thumb_joystick.png");
+  joystick[1] = loadImage("images/thumb-slide-joystick.jpeg");
+  joystick[2] = loadImage("images/5_way _tactile_switch.jpeg");
 
   // Creates font
   robotoRegular12 = createFont("fonts/Roboto-Regular.ttf", 12);
@@ -129,11 +127,10 @@ void draw() {
   int imageSize = 40;
   int imageOffset = 3;
   iconFrameX = cardWidth - iconFrameSize;
-  image(joystick_1, iconFrameX + imageOffset, statusBarHeight + topAppBarHeight + margin + (padding28 * 3) + iconFrameYOffset + imageOffset, imageSize, imageSize);
-  iconFrameX = iconFrameX + margin + cardWidth;
-  image(joystick_2, iconFrameX + imageOffset, statusBarHeight + topAppBarHeight + margin + (padding28 * 3) + iconFrameYOffset + imageOffset, imageSize, imageSize);
-  iconFrameX = iconFrameX + margin + cardWidth;
-  image(joystick_3, iconFrameX + imageOffset, statusBarHeight + topAppBarHeight + margin + (padding28 * 3) + iconFrameYOffset + imageOffset, imageSize, imageSize);
+  for (int i = 0; i < joystick.length; i++) {
+    image(joystick[i], iconFrameX + imageOffset, statusBarHeight + topAppBarHeight + margin + (padding28 * 3) + iconFrameYOffset + imageOffset, imageSize, imageSize);
+    iconFrameX = iconFrameX + margin + cardWidth;
+  }
 
   // Writes clock time
   int m = minute();  // Values from 0 - 59
