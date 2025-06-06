@@ -18,6 +18,7 @@ PFont robotoRegular16;
 PFont robotoRegular20;
 PFont robotoRegular24;
 PFont robotoRegular50;
+PFont robotoRegular60;
 
 // Color definitions
 color green1 = color(29,185,84); 
@@ -40,7 +41,7 @@ int joystick1_PotA = 0;
 int joystick1_PotB = 0;
 int joystick1_SwitchA = 0;
 int joystick2_PotA = 0;
-int joystick2_PotA = 0;
+int joystick2_PotB = 0;
 int joystick3_SwitchA = 0;
 int joystick3_SwitchB = 0;
 int joystick3_SwitchC = 0;
@@ -65,6 +66,7 @@ void setup() {
   robotoRegular20 = createFont("fonts/Roboto-Regular.ttf", 20);
   robotoRegular24 = createFont("fonts/Roboto-Regular.ttf", 24);
   robotoRegular50 = createFont("fonts/Roboto-Regular.ttf", 50);
+  robotoRegular60 = createFont("fonts/Roboto-Regular.ttf", 60);
 }
 
 void draw() {
@@ -83,6 +85,7 @@ void draw() {
   int fontSize20 = 20;
   int fontSize24 = 24;
   int fontSize50 = 50;
+  int fontSize60 = 60;
 
   // Draws Top App Bar
   noStroke(); 
@@ -99,6 +102,12 @@ void draw() {
     rect(cardIni, statusBarHeight + topAppBarHeight + margin, cardWidth, height - statusBarHeight - topAppBarHeight - (margin * 2), roundCorners);
     cardIni = cardIni + margin + cardWidth;
   }
+
+  // Draws image background frame
+  int iconFrameSize = 46;
+  int iconFrameX = cardWidth - iconFrameSize;
+  fill(white);  
+  rect(iconFrameX, statusBarHeight + topAppBarHeight + margin + (padding28 * 3) + 10, iconFrameSize, iconFrameSize, roundCorners);
 
   // Draws status bar image
   int iconSize = 16;
@@ -138,10 +147,25 @@ void draw() {
     cardTextX = cardTextX + margin + cardWidth;
   }
 
-  // Writes card number variable
-  textFont(robotoRegular50, fontSize50);
-  text(speedValue, margin * 2, statusBarHeight + topAppBarHeight + margin + (padding28 * 5));
+  // Writes cards numbers variables
+  cardTextX = margin * 2;
+  String joystick = "A: ";
+  textFont(robotoRegular24, fontSize24);
+  text(joystick + joystick1_PotA, cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * 4));
+  joystick = "B: ";
+  text(joystick + joystick1_PotB, cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * 5));
+  cardTextX = cardTextX + margin + cardWidth;
+  joystick = "A: ";
+  text(joystick + joystick2_PotA, cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * 4));
+  joystick = "B: ";
+  text(joystick + joystick2_PotB, cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * 5));
+  cardTextX = cardTextX + margin + cardWidth;
 
+  int textOffset = 1;
+  textFont(robotoRegular60, fontSize60);
+  text(joystick3_SwitchA, cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * 5) - textOffset);
+
+  
   // Writes card number variable subtitle
   cardTextX = margin * 2;
   String[] cardSubVar = { "Joystick 1 values", "Joystick 2 values", "Joystick 3 values" };
@@ -151,7 +175,8 @@ void draw() {
     cardTextX = cardTextX + margin + cardWidth;
   }
 
- 
+ fill(255, 0, 0, 127);  
+  rect(0, statusBarHeight + topAppBarHeight + margin + (padding28 * 3) + 10, width, 46);
 
   // Draws slider line
   strokeWeight(4);
