@@ -35,6 +35,18 @@ boolean overSlider = false;
 boolean locked = false;
 int speedValue = 1;
 
+// Arduino variables
+int joystick1_PotA = 0;
+int joystick1_PotB = 0;
+int joystick1_SwitchA = 0;
+int joystick2_PotA = 0;
+int joystick2_PotA = 0;
+int joystick3_SwitchA = 0;
+int joystick3_SwitchB = 0;
+int joystick3_SwitchC = 0;
+int joystick3_SwitchD = 0;
+int joystick3_SwitchE = 0;
+
 void setup() {
 
    // Processing window size
