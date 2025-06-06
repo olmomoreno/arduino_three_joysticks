@@ -106,8 +106,13 @@ void draw() {
   // Draws image background frame
   int iconFrameSize = 46;
   int iconFrameX = cardWidth - iconFrameSize;
-  fill(white);  
-  rect(iconFrameX, statusBarHeight + topAppBarHeight + margin + (padding28 * 3) + 10, iconFrameSize, iconFrameSize, roundCorners);
+  roundCorners = 10;
+  fill(white); 
+  for(int i = 0; i < 3; i++){
+    rect(iconFrameX, statusBarHeight + topAppBarHeight + margin + (padding28 * 3) + 10, iconFrameSize, iconFrameSize, roundCorners);
+    iconFrameX = iconFrameX + margin + cardWidth;
+  } 
+  
 
   // Draws status bar image
   int iconSize = 16;
