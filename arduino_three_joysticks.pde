@@ -106,14 +106,14 @@ void draw() {
   // Draws image background frame
   int iconFrameSize = 46;
   int iconFrameX = cardWidth - iconFrameSize;
+  int iconFrameYOffset = 10;
   roundCorners = 10;
   fill(white); 
   for(int i = 0; i < 3; i++){
-    rect(iconFrameX, statusBarHeight + topAppBarHeight + margin + (padding28 * 3) + 10, iconFrameSize, iconFrameSize, roundCorners);
+    rect(iconFrameX, statusBarHeight + topAppBarHeight + margin + (padding28 * 3) + iconFrameYOffset, iconFrameSize, iconFrameSize, roundCorners);
     iconFrameX = iconFrameX + margin + cardWidth;
   } 
   
-
   // Draws status bar image
   int iconSize = 16;
   int iconOffset = 4;
@@ -124,6 +124,16 @@ void draw() {
   int logoHeight = 39;
   int logoOffset = 3;
   image(xolabLogo, (width/2) - (logoWidth/2), statusBarHeight + logoOffset, logoWidth, logoHeight);
+
+  // Draws cards image
+  int imageSize = 40;
+  int imageOffset = 3;
+  iconFrameX = cardWidth - iconFrameSize;
+  image(joystick_1, iconFrameX + imageOffset, statusBarHeight + topAppBarHeight + margin + (padding28 * 3) + iconFrameYOffset + imageOffset, imageSize, imageSize);
+  iconFrameX = iconFrameX + margin + cardWidth;
+  image(joystick_2, iconFrameX + imageOffset, statusBarHeight + topAppBarHeight + margin + (padding28 * 3) + iconFrameYOffset + imageOffset, imageSize, imageSize);
+  iconFrameX = iconFrameX + margin + cardWidth;
+  image(joystick_3, iconFrameX + imageOffset, statusBarHeight + topAppBarHeight + margin + (padding28 * 3) + iconFrameYOffset + imageOffset, imageSize, imageSize);
 
   // Writes clock time
   int m = minute();  // Values from 0 - 59
@@ -180,13 +190,12 @@ void draw() {
     cardTextX = cardTextX + margin + cardWidth;
   }
 
- fill(255, 0, 0, 127);  
-  rect(0, statusBarHeight + topAppBarHeight + margin + (padding28 * 3) + 10, width, 46);
+  //fill(255, 0, 0, 127);  
+  //rect(0, statusBarHeight + topAppBarHeight + margin + (padding28 * 3) + 10, width, 46);
 
   // Draws slider line
   strokeWeight(4);
   stroke(white);
   line((margin * 2), statusBarHeight + topAppBarHeight + margin + (padding28 * 8), cardWidth, statusBarHeight + topAppBarHeight + margin + (padding28 * 8));
 
-  
 }
