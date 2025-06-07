@@ -220,8 +220,11 @@ void draw() {
   circle(cursor1X, cursor1Y, cursorSize);
 
   // Draws card 2 cursor
-  cursor1X = cursor1X + margin + (cardWidth);
-  circle(cursor1X, cursor1Y, cursorSize);
+  int cursor2X = margin * 2 + (cardWidth/2) + (cardWidth);
+  int cursor2Y = statusBarHeight + topAppBarHeight + margin + (padding28 * 8) + cursorAreaOffset;
+  int cursor2RLimit = margin + cardWidth * 2;
+  int cursor2LLimit = margin * 3 + cardWidth;
+  circle(cursor2X, cursor2Y, cursorSize);
 
   // Draws card 3 cursor
   cursor1X = cursor1X + margin + (cardWidth);
