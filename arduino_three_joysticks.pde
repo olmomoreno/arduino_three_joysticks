@@ -127,6 +127,18 @@ void draw() {
     iconFrameX = iconFrameX + margin + cardWidth;
   }
 
+  // Draws cards cursor areas
+  int cursorAreaWidth = cardWidth - margin * 2;
+  int cursorAreaOffset = 10;
+  int squareIni = margin * 2;
+  noFill();
+  stroke(white);
+  strokeWeight(1);
+  for (int i = 0; i < 3; i++) {
+    rect(squareIni, statusBarHeight + topAppBarHeight + margin + padding28 * 6 + cursorAreaOffset, cursorAreaWidth, padding28 * 4 -cursorAreaOffset, roundCorners );
+    squareIni = squareIni + margin + cardWidth;
+  }
+  
   // Writes clock time
   int m = minute();  // Values from 0 - 59
   int h = hour();    // Values from 0 - 23
@@ -180,7 +192,6 @@ void draw() {
   textFont(robotoRegular60, fontSize60);
   text(joystickVal[9], cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * 5) - textOffset);
 
-  
   // Writes card number variable subtitle
   cardTextX = margin * 2;
   String[] cardSubVar = { "Joystick 1 values", "Joystick 2 values", "Joystick 3 values" };
@@ -191,8 +202,22 @@ void draw() {
   }
 
   // Draws slider line
-  strokeWeight(4);
+  cursorAreaOffset = 5;
   stroke(white);
-  line((margin * 2), statusBarHeight + topAppBarHeight + margin + (padding28 * 8), cardWidth, statusBarHeight + topAppBarHeight + margin + (padding28 * 8));
+ // line((margin * 2), statusBarHeight + topAppBarHeight + margin + (padding28 * 8) + cursorAreaOffset, cardWidth, statusBarHeight + topAppBarHeight + margin + (padding28 * 8) + cursorAreaOffset);
 
+  // Draws card 1 cursor
+  fill(white);
+  int cursor1X = margin + (cardWidth/2);
+  int cursor1Y = statusBarHeight + topAppBarHeight + margin + (padding28 * 8) + cursorAreaOffset;
+  int cursorSize = 10;
+  circle(cursor1X, cursor1Y, cursorSize);
+
+  // Draws card 2 cursor
+  cursor1X = cursor1X + margin + (cardWidth);
+  circle(cursor1X, cursor1Y, cursorSize);
+
+  // Draws card 3 cursor
+  cursor1X = cursor1X + margin + (cardWidth);
+  circle(cursor1X, cursor1Y, cursorSize);
 }
