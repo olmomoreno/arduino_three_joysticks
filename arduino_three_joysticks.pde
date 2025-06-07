@@ -5,6 +5,12 @@
 **  card area.                                                  **
 *****************************************************************/
 
+// Libraries
+import processing.serial.*;
+
+//Serial
+Serial port;
+
 //Images
 PImage rocketIcon;
 PImage xolabLogo;
@@ -61,6 +67,10 @@ void setup() {
   for(int i = 0; i < joystickVal.length; i++){
     joystickVal[i] = i;
   }
+
+  printArray(Serial.list());  // Show available ports in console
+  port = new Serial(this, Serial.list()[0], 9600);  // Replace [0] if needed
+  port.bufferUntil('\n');
 }
 
 void draw() {
@@ -201,12 +211,8 @@ void draw() {
     cardTextX = cardTextX + margin + cardWidth;
   }
 
-  // Draws slider line
-  cursorAreaOffset = 5;
-  stroke(white);
- // line((margin * 2), statusBarHeight + topAppBarHeight + margin + (padding28 * 8) + cursorAreaOffset, cardWidth, statusBarHeight + topAppBarHeight + margin + (padding28 * 8) + cursorAreaOffset);
-
   // Draws card 1 cursor
+  cursorAreaOffset = 5;
   fill(white);
   int cursor1X = margin + (cardWidth/2);
   int cursor1Y = statusBarHeight + topAppBarHeight + margin + (padding28 * 8) + cursorAreaOffset;
@@ -221,3 +227,42 @@ void draw() {
   cursor1X = cursor1X + margin + (cardWidth);
   circle(cursor1X, cursor1Y, cursorSize);
 }
+
+// Serial event manager
+void serialEvent(Serial port) {
+  String line = port.readStringUntil('\n');
+  if (line != null) {
+    line = trim(line);
+    parseLine(line);
+  }
+}
+
+void parseLine(String line) {
+  String[] values = split(trim(line), ",");
+
+  if (values.length == 8) {
+    joystickVal[0] = int(values[0]);
+    joystickVal[1] = int(values[1]);
+    joystickVal[3] = int(values[2]);
+
+    int p = 5;
+    for (int i = 0; i < 4; i++) {
+      joystickVal[p] = int(values[3 + i]);
+      p++;
+    }
+
+    // Joystick push button
+    joystickVal[2] = int(values[7]);
+  }
+}
+
+// int joystick1_PotA = 0;
+// int joystick1_PotB = 0;
+// int joystick1_SwitchA = 0;
+// int joystick2_PotA = 0;
+// int joystick2_PotB = 0;
+// int joystick3_SwitchA = 0;
+// int joystick3_SwitchB = 0;
+// int joystick3_SwitchC = 0;
+// int joystick3_SwitchD = 0;
+// int joystick3_SwitchE = 0;
