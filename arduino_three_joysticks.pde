@@ -43,6 +43,9 @@ int[] joystickVal = new int[10];
 // int joystick3_SwitchC = 0;
 // int joystick3_SwitchD = 0;
 // int joystick3_SwitchE = 0;
+int prevSlider = 0;
+int threshold = 5;  // Change sensitivity (to avoid noise)
+int cursor2XOffset = 0;
 
 void setup() {
 
@@ -220,10 +223,45 @@ void draw() {
   circle(cursor1X, cursor1Y, cursorSize);
 
   // Draws card 2 cursor
-  int cursor2X = margin * 2 + (cardWidth/2) + (cardWidth);
+  int cursor2X = margin * 2 + (cardWidth/2) + (cardWidth) + cursor2XOffset;
   int cursor2Y = statusBarHeight + topAppBarHeight + margin + (padding28 * 8) + cursorAreaOffset;
   int cursor2RLimit = margin + cardWidth * 2;
   int cursor2LLimit = margin * 3 + cardWidth;
+  // Gets speed multiplier
+  int lowRightLimit = 158;
+  int highRightLimit = 315;
+  int lowNeutralLimit = 472;
+  int highNeutralLimit = 552;
+  int lowLeftLimit = 709;
+  int midLeftLimit = 866;
+  int highLeftLimit = 709;
+  int cursor2SpeedMultiplier = 0;
+  if ((joystickVal[3] >= 0)                && (joystickVal[3] <= lowRightLimit))    cursor2SpeedMultiplier = 3;
+  if ((joystickVal[3] >= lowRightLimit)    && (joystickVal[3] <= highRightLimit))   cursor2SpeedMultiplier = 2;
+  if ((joystickVal[3] >= highRightLimit)   && (joystickVal[3] <= lowNeutralLimit))  cursor2SpeedMultiplier = 1;
+  if ((joystickVal[3] >= lowNeutralLimit)  && (joystickVal[3] <= highNeutralLimit)) cursor2SpeedMultiplier = 0;
+  if ((joystickVal[3] >= highNeutralLimit) && (joystickVal[3] <= lowLeftLimit))     cursor2SpeedMultiplier = 1;
+  if ((joystickVal[3] >= lowLeftLimit)     && (joystickVal[3] <= midLeftLimit))     cursor2SpeedMultiplier = 2;
+  if ((joystickVal[3] >= midLeftLimit)     && (joystickVal[3] <= highLeftLimit))    cursor2SpeedMultiplier = 3;
+  println(cursor2SpeedMultiplier);
+  // Limits cursor 2
+  //if((cursor2X > cursor2LLimit) && (cursor2X < cursor2RLimit)){
+
+    int currentSlider = joystickVal[3];
+
+    // Check if change exceeds the threshold
+    if (abs(currentSlider - prevSlider) > threshold) {
+      if (currentSlider > prevSlider) {
+        cursor2XOffset++;
+        
+      } 
+      else {
+        cursor2XOffset--;
+      }
+      cursor2X = cursor2X + cursor2XOffset;
+    prevSlider = currentSlider;  // Update the previous value
+    }
+  //}
   circle(cursor2X, cursor2Y, cursorSize);
 
   // Draws card 3 cursor
@@ -269,3 +307,32 @@ void parseLine(String line) {
 // int joystick3_SwitchC = 0;
 // int joystick3_SwitchD = 0;
 // int joystick3_SwitchE = 0;
+
+// #include <Esplora.h>
+
+// void setup() {
+//   Serial.begin(9600);
+// }
+
+// void loop() {
+//   int joyX = Esplora.readJoystickX();
+//   int joyY = Esplora.readJoystickY();
+//   int sliderVal = Esplora.readSlider();
+
+//   bool buttonUp    = Esplora.readButton(SWITCH_UP);
+//   bool buttonDown  = Esplora.readButton(SWITCH_DOWN);
+//   bool buttonLeft  = Esplora.readButton(SWITCH_LEFT);
+//   bool buttonRight = Esplora.readButton(SWITCH_RIGHT);
+//   bool joyButton   = Esplora.readJoystickSwitch();
+
+//   // Send as comma-separated values
+//   Serial.print(joyX); Serial.print(",");
+//   Serial.print(joyY); Serial.print(",");
+//   Serial.print(sliderVal); Serial.print(",");
+//   Serial.print(buttonUp); Serial.print(",");
+//   Serial.print(buttonDown); Serial.print(",");
+//   Serial.print(buttonLeft); Serial.print(",");
+//   Serial.print(buttonRight); Serial.print(",");
+//   Serial.println(joyButton);  // Now includes joystick button
+//   delay(100);
+// }
