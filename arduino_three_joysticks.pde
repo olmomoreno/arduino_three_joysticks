@@ -33,6 +33,8 @@ color black = color(0);
 
 // Arduino variables
 int[] joystickVal = new int[10];
+int cursor1X = 105;
+int cursor1Y = 314;
 int cursor2X = 299;
 int cursor2Y = 314;
 
@@ -206,26 +208,32 @@ void draw() {
   // Draws card 1 cursor
   cursorAreaOffset = 5;
   fill(white);
-  int cursor1X = margin + (cardWidth/2);
-  int cursor1Y = statusBarHeight + topAppBarHeight + margin + (padding28 * 8) + cursorAreaOffset;
   int cursorSize = 10;
+  int cursorULimit = statusBarHeight + topAppBarHeight + margin + padding28 * 6 + cursorAreaOffset + cursorSize;
+  int cursorDLimit = statusBarHeight + topAppBarHeight + margin + padding28 * 10 - cursorAreaOffset - cursorSize/2;
+  int cursor1RLimit = cardWidth - cursorSize/2;
+  int cursor1LLimit = margin * 2 + cursorSize/2;
+  int jv0UpBound = 1023;
+  int jv0LowBound = 0;
+  int jv1UpBound = 1023;
+  int jv1LowBound = 0;
+  cursor1X = int(map(joystickVal[0], jv0LowBound, jv0UpBound, cursor1LLimit, cursor1RLimit));
+  cursor1Y = int(map(joystickVal[1], jv1LowBound, jv1UpBound, cursorULimit, cursorDLimit));
   circle(cursor1X, cursor1Y, cursorSize);
 
   // Draws card 2 cursor
   int cursor2RLimit = margin + cardWidth * 2 - cursorSize/2;
   int cursor2LLimit = margin * 3 + cardWidth + cursorSize/2;
-  int cursor2ULimit = statusBarHeight + topAppBarHeight + margin + padding28 * 6 + cursorAreaOffset + cursorSize;
-  int cursor2DLimit = statusBarHeight + topAppBarHeight + margin + padding28 * 10 - cursorAreaOffset - cursorSize/2;
   int jv2UpBound = 860;
   int jv2LowBound = 100;
   int jv3UpBound = 920;
   int jv3LowBound = 180;
   cursor2X = int(map(joystickVal[2], jv2LowBound, jv2UpBound, cursor2LLimit, cursor2RLimit));
-  cursor2Y = int(map(joystickVal[3], jv3LowBound, jv3UpBound, cursor2ULimit, cursor2DLimit));
+  cursor2Y = int(map(joystickVal[3], jv3LowBound, jv3UpBound, cursorULimit, cursorDLimit));
   if(cursor2X < cursor2LLimit) cursor2X = cursor2LLimit;
   if(cursor2X > cursor2RLimit) cursor2X = cursor2RLimit;
-  if(cursor2Y < cursor2ULimit) cursor2Y = cursor2ULimit;
-  if(cursor2Y > cursor2DLimit) cursor2Y = cursor2DLimit;
+  if(cursor2Y < cursorULimit) cursor2Y = cursorULimit;
+  if(cursor2Y > cursorDLimit) cursor2Y = cursorDLimit;
   circle(cursor2X, cursor2Y, cursorSize);
 
   // Draws card 3 cursor
