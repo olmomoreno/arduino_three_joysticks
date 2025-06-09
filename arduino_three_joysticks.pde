@@ -33,19 +33,8 @@ color black = color(0);
 
 // Arduino variables
 int[] joystickVal = new int[10];
-// int joystick1_PotA = 0;
-// int joystick1_PotB = 0;
-// int joystick1_SwitchA = 0;
-// int joystick2_PotA = 0;
-// int joystick2_PotB = 0;
-// int joystick3_SwitchA = 0;
-// int joystick3_SwitchB = 0;
-// int joystick3_SwitchC = 0;
-// int joystick3_SwitchD = 0;
-// int joystick3_SwitchE = 0;
-int prevSlider = 0;
-int threshold = 5;  // Change sensitivity (to avoid noise)
-int cursor2XOffset = 0;
+int cursor2X = 299;
+int cursor2Y = 314;
 
 void setup() {
 
@@ -148,7 +137,7 @@ void draw() {
   stroke(white);
   strokeWeight(1);
   for (int i = 0; i < 3; i++) {
-    rect(squareIni, statusBarHeight + topAppBarHeight + margin + padding28 * 6 + cursorAreaOffset, cursorAreaWidth, padding28 * 4 -cursorAreaOffset, roundCorners );
+    rect(squareIni, statusBarHeight + topAppBarHeight + margin + padding28 * 6 + cursorAreaOffset, cursorAreaWidth, padding28 * 4 - cursorAreaOffset, roundCorners );
     squareIni = squareIni + margin + cardWidth;
   }
   
@@ -181,7 +170,7 @@ void draw() {
 
   // Writes cards numbers variables
   cardTextX = margin * 2;
-  String[] joystickPotentiometer = { "A: ", "B: " };
+  String[] joystickPotentiometer = { "X: ", "Y: " };
   int paddingIndex = 4;
   int joystickValIndex = 0;
   textFont(robotoRegular24, fontSize24);
@@ -223,50 +212,25 @@ void draw() {
   circle(cursor1X, cursor1Y, cursorSize);
 
   // Draws card 2 cursor
-  int cursor2X = margin * 2 + (cardWidth/2) + (cardWidth) + cursor2XOffset;
-  int cursor2Y = statusBarHeight + topAppBarHeight + margin + (padding28 * 8) + cursorAreaOffset;
-  int cursor2RLimit = margin + cardWidth * 2;
-  int cursor2LLimit = margin * 3 + cardWidth;
-  // Gets speed multiplier
-  int lowRightLimit = 158;
-  int highRightLimit = 315;
-  int lowNeutralLimit = 472;
-  int highNeutralLimit = 552;
-  int lowLeftLimit = 709;
-  int midLeftLimit = 866;
-  int highLeftLimit = 709;
-  int cursor2SpeedMultiplier = 0;
-  if ((joystickVal[3] >= 0)                && (joystickVal[3] <= lowRightLimit))    cursor2SpeedMultiplier = 3;
-  if ((joystickVal[3] >= lowRightLimit)    && (joystickVal[3] <= highRightLimit))   cursor2SpeedMultiplier = 2;
-  if ((joystickVal[3] >= highRightLimit)   && (joystickVal[3] <= lowNeutralLimit))  cursor2SpeedMultiplier = 1;
-  if ((joystickVal[3] >= lowNeutralLimit)  && (joystickVal[3] <= highNeutralLimit)) cursor2SpeedMultiplier = 0;
-  if ((joystickVal[3] >= highNeutralLimit) && (joystickVal[3] <= lowLeftLimit))     cursor2SpeedMultiplier = 1;
-  if ((joystickVal[3] >= lowLeftLimit)     && (joystickVal[3] <= midLeftLimit))     cursor2SpeedMultiplier = 2;
-  if ((joystickVal[3] >= midLeftLimit)     && (joystickVal[3] <= highLeftLimit))    cursor2SpeedMultiplier = 3;
-  println(cursor2SpeedMultiplier);
-  // Limits cursor 2
-  //if((cursor2X > cursor2LLimit) && (cursor2X < cursor2RLimit)){
-
-    int currentSlider = joystickVal[3];
-
-    // Check if change exceeds the threshold
-    if (abs(currentSlider - prevSlider) > threshold) {
-      if (currentSlider > prevSlider) {
-        cursor2XOffset++;
-        
-      } 
-      else {
-        cursor2XOffset--;
-      }
-      cursor2X = cursor2X + cursor2XOffset;
-    prevSlider = currentSlider;  // Update the previous value
-    }
-  //}
+  int cursor2RLimit = margin + cardWidth * 2 - cursorSize/2;
+  int cursor2LLimit = margin * 3 + cardWidth + cursorSize/2;
+  int cursor2ULimit = statusBarHeight + topAppBarHeight + margin + padding28 * 6 + cursorAreaOffset + cursorSize;
+  int cursor2DLimit = statusBarHeight + topAppBarHeight + margin + padding28 * 10 - cursorAreaOffset - cursorSize/2;
+  int jv2UpBound = 860;
+  int jv2LowBound = 100;
+  int jv3UpBound = 920;
+  int jv3LowBound = 180;
+  cursor2X = int(map(joystickVal[2], jv2LowBound, jv2UpBound, cursor2LLimit, cursor2RLimit));
+  cursor2Y = int(map(joystickVal[3], jv3LowBound, jv3UpBound, cursor2ULimit, cursor2DLimit));
+  if(cursor2X < cursor2LLimit) cursor2X = cursor2LLimit;
+  if(cursor2X > cursor2RLimit) cursor2X = cursor2RLimit;
+  if(cursor2Y < cursor2ULimit) cursor2Y = cursor2ULimit;
+  if(cursor2Y > cursor2DLimit) cursor2Y = cursor2DLimit;
   circle(cursor2X, cursor2Y, cursorSize);
 
   // Draws card 3 cursor
   cursor1X = cursor1X + margin + (cardWidth);
-  circle(cursor1X, cursor1Y, cursorSize);
+  //circle(cursor1X, cursor1Y, cursorSize);
 }
 
 // Serial event manager
@@ -284,7 +248,8 @@ void parseLine(String line) {
   if (values.length == 8) {
     joystickVal[0] = int(values[0]);
     joystickVal[1] = int(values[1]);
-    joystickVal[3] = int(values[2]);
+    joystickVal[2] = int(values[2]); // Joystick 2 Y axis
+    joystickVal[3] = int(values[3]); // Joystick 2 X axis
 
     int p = 5;
     for (int i = 0; i < 4; i++) {
@@ -293,7 +258,7 @@ void parseLine(String line) {
     }
 
     // Joystick push button
-    joystickVal[2] = int(values[7]);
+    joystickVal[4] = int(values[4]);
   }
 }
 
