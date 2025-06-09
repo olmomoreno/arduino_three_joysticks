@@ -40,6 +40,8 @@ int cursor1X = 105;
 int cursor1Y = 314;
 int cursor2X = 299;
 int cursor2Y = 314;
+int cursor3X = 493;
+int cursor3Y = 314;
 
 void setup() {
 
@@ -170,6 +172,7 @@ void draw() {
   int paddingIndex = 4;
   int joystickValIndex = 0;
   textFont(robotoRegular24, fontSize24);
+
   // Text variables for card 1
   for(int i = 0; i < joystickPotentiometer.length; i++){
     text(joystickPotentiometer[i] + joystickVal[joystickValIndex], cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * paddingIndex));
@@ -178,6 +181,7 @@ void draw() {
   }
   paddingIndex = 4;
   cardTextX = cardTextX + margin + cardWidth;
+
   // Text variables for card 2
   for(int i = 0; i < joystickPotentiometer.length; i++){
     text(joystickPotentiometer[i] + joystickVal[joystickValIndex], cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * paddingIndex));
@@ -185,6 +189,7 @@ void draw() {
     joystickValIndex++;
   }
   cardTextX = cardTextX + margin + cardWidth;
+
   // Text variables for card 3
   int textOffset = 1;
   textFont(robotoRegular60, fontSize60);
@@ -255,8 +260,7 @@ void draw() {
   circle(cursor2X, cursor2Y, cursorSize);
 
   // Draws card 3 cursor
-  cursor1X = cursor1X + margin + (cardWidth);
-  //circle(cursor1X, cursor1Y, cursorSize);
+  circle(cursor3X, cursor3Y, cursorSize);
 
   // Draws cards cursor areas
   cursorAreaOffset = 10;
