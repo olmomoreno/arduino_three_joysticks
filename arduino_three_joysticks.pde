@@ -11,6 +11,9 @@ import processing.serial.*;
 //Serial
 Serial port;
 
+//PGraphics
+PGraphics layer;
+
 //Images
 PImage rocketIcon;
 PImage xolabLogo;
@@ -33,6 +36,8 @@ color black = color(0);
 
 // Arduino variables
 int[] joystickVal = new int[10];
+int cursorAreaWidth = 146;
+int cursorAreaHeight = 102;
 int cursor1X = 105;
 int cursor1Y = 314;
 int cursor2X = 299;
@@ -42,6 +47,9 @@ void setup() {
 
    // Processing window size
   size(600, 400);
+
+  // Creates layer 
+  layer = createGraphics(cursorAreaWidth, cursorAreaHeight);
 
   // Loads image
   rocketIcon = loadImage("images/rocket_launch_24dp_FFFFFF.png");
@@ -132,7 +140,6 @@ void draw() {
   }
 
   // Draws cards cursor areas
-  int cursorAreaWidth = cardWidth - margin * 2;
   int cursorAreaOffset = 10;
   int squareIni = margin * 2;
   noFill();
@@ -142,7 +149,7 @@ void draw() {
     rect(squareIni, statusBarHeight + topAppBarHeight + margin + padding28 * 6 + cursorAreaOffset, cursorAreaWidth, padding28 * 4 - cursorAreaOffset, roundCorners );
     squareIni = squareIni + margin + cardWidth;
   }
-  
+
   // Writes clock time
   int m = minute();  // Values from 0 - 59
   int h = hour();    // Values from 0 - 23
@@ -194,7 +201,7 @@ void draw() {
   // Text variables for card 3
   int textOffset = 1;
   textFont(robotoRegular60, fontSize60);
-  text(joystickVal[9], cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * 5) - textOffset);
+  text(joystickVal[4], cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * 5) - textOffset);
 
   // Writes card number variable subtitle
   cardTextX = margin * 2;
@@ -220,6 +227,16 @@ void draw() {
   cursor1X = int(map(joystickVal[0], jv0LowBound, jv0UpBound, cursor1LLimit, cursor1RLimit));
   cursor1Y = int(map(joystickVal[1], jv1LowBound, jv1UpBound, cursorULimit, cursorDLimit));
   circle(cursor1X, cursor1Y, cursorSize);
+  
+  // Draws cursor 1 in canvas
+  int layerX = margin * 2;
+  int layerY = statusBarHeight + topAppBarHeight + margin + padding28 * 6 + cursorAreaOffset;
+  layer.beginDraw();
+  layer.stroke(green1);         // White brush
+  layer.strokeWeight(5);     // Brush thickness
+  layer.point(mouseX, mouseY);
+  layer.endDraw();
+  image(layer, layerX, layerY);   // Draw the persistent brush layer
 
   // Draws card 2 cursor
   int cursor2RLimit = margin + cardWidth * 2 - cursorSize/2;
