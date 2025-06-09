@@ -233,25 +233,23 @@ void draw() {
   int layerY = statusBarHeight + topAppBarHeight + margin + padding28 * 6 + cursorAreaOffset;
   int brushAreaWidth = 146 + layerX;
   int brushAreaHeight = 102 + layerY;
-  if(joystickVal[4] == 0){
-    layer.beginDraw();
-    layer.stroke(gray2);         // White brush
+  layer.beginDraw();
+  if(joystickVal[4] == 0){  // If joystick button pressed, green brush draw is erased
+    layer.stroke(gray2);         // Gray brush
     layer.strokeWeight(1);     // Brush thickness
     for(int z = layerY; z < brushAreaHeight; z++){
       for(int y = layerX; y < brushAreaWidth; y++){
         layer.point(y, z);
       }
     }
-    layer.endDraw();
   }
-  else{
+  else{ // Green brush is drawn
     layer.beginDraw();
     layer.stroke(green1);         // White brush
     layer.strokeWeight(5);     // Brush thickness
     layer.point(cursor1X, cursor1Y);
-    layer.endDraw();
   }
-  
+  layer.endDraw();
   image(layer, 0, 0);   // Draw the persistent brush layer
   circle(cursor1X, cursor1Y, cursorSize);
 
