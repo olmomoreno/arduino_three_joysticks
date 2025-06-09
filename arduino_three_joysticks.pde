@@ -49,7 +49,8 @@ void setup() {
   size(600, 400);
 
   // Creates layer 
-  layer = createGraphics(cursorAreaWidth, cursorAreaHeight);
+  //layer = createGraphics(cursorAreaWidth, cursorAreaHeight);
+  layer = createGraphics(width, height);
 
   // Loads image
   rocketIcon = loadImage("images/rocket_launch_24dp_FFFFFF.png");
@@ -226,17 +227,33 @@ void draw() {
   int jv1LowBound = 0;
   cursor1X = int(map(joystickVal[0], jv0LowBound, jv0UpBound, cursor1LLimit, cursor1RLimit));
   cursor1Y = int(map(joystickVal[1], jv1LowBound, jv1UpBound, cursorULimit, cursorDLimit));
-  circle(cursor1X, cursor1Y, cursorSize);
   
   // Draws cursor 1 in canvas
   int layerX = margin * 2;
   int layerY = statusBarHeight + topAppBarHeight + margin + padding28 * 6 + cursorAreaOffset;
-  layer.beginDraw();
-  layer.stroke(green1);         // White brush
-  layer.strokeWeight(5);     // Brush thickness
-  layer.point(mouseX, mouseY);
-  layer.endDraw();
-  image(layer, layerX, layerY);   // Draw the persistent brush layer
+  int brushAreaWidth = 146 + layerX;
+  int brushAreaHeight = 102 + layerY;
+  if(joystickVal[4] == 0){
+    layer.beginDraw();
+    layer.stroke(gray2);         // White brush
+    layer.strokeWeight(1);     // Brush thickness
+    for(int z = layerY; z < brushAreaHeight; z++){
+      for(int y = layerX; y < brushAreaWidth; y++){
+        layer.point(y, z);
+      }
+    }
+    layer.endDraw();
+  }
+  else{
+    layer.beginDraw();
+    layer.stroke(green1);         // White brush
+    layer.strokeWeight(5);     // Brush thickness
+    layer.point(cursor1X, cursor1Y);
+    layer.endDraw();
+  }
+  
+  image(layer, 0, 0);   // Draw the persistent brush layer
+  circle(cursor1X, cursor1Y, cursorSize);
 
   // Draws card 2 cursor
   int cursor2RLimit = margin + cardWidth * 2 - cursorSize/2;
