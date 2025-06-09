@@ -36,8 +36,6 @@ color black = color(0);
 
 // Arduino variables
 int[] joystickVal = new int[10];
-int cursorAreaWidth = 146;
-int cursorAreaHeight = 102;
 int cursor1X = 105;
 int cursor1Y = 314;
 int cursor2X = 299;
@@ -48,8 +46,7 @@ void setup() {
    // Processing window size
   size(600, 400);
 
-  // Creates layer 
-  //layer = createGraphics(cursorAreaWidth, cursorAreaHeight);
+  // Creates layer
   layer = createGraphics(width, height);
 
   // Loads image
@@ -140,17 +137,6 @@ void draw() {
     iconFrameX = iconFrameX + margin + cardWidth;
   }
 
-  // Draws cards cursor areas
-  int cursorAreaOffset = 10;
-  int squareIni = margin * 2;
-  noFill();
-  stroke(white);
-  strokeWeight(1);
-  for (int i = 0; i < 3; i++) {
-    rect(squareIni, statusBarHeight + topAppBarHeight + margin + padding28 * 6 + cursorAreaOffset, cursorAreaWidth, padding28 * 4 - cursorAreaOffset, roundCorners );
-    squareIni = squareIni + margin + cardWidth;
-  }
-
   // Writes clock time
   int m = minute();  // Values from 0 - 59
   int h = hour();    // Values from 0 - 23
@@ -214,7 +200,7 @@ void draw() {
   }
 
   // Draws card 1 cursor
-  cursorAreaOffset = 5;
+  int cursorAreaOffset = 5;
   fill(white);
   int cursorSize = 10;
   int cursorULimit = statusBarHeight + topAppBarHeight + margin + padding28 * 6 + cursorAreaOffset + cursorSize;
@@ -271,6 +257,18 @@ void draw() {
   // Draws card 3 cursor
   cursor1X = cursor1X + margin + (cardWidth);
   //circle(cursor1X, cursor1Y, cursorSize);
+
+  // Draws cards cursor areas
+  cursorAreaOffset = 10;
+  int cursorAreaWidth = 146;
+  int squareIni = margin * 2;
+  noFill();
+  stroke(white);
+  strokeWeight(1);
+  for (int i = 0; i < 3; i++) {
+    rect(squareIni, statusBarHeight + topAppBarHeight + margin + padding28 * 6 + cursorAreaOffset, cursorAreaWidth, padding28 * 4 - cursorAreaOffset, roundCorners );
+    squareIni = squareIni + margin + cardWidth;
+  }
 }
 
 // Serial event manager
