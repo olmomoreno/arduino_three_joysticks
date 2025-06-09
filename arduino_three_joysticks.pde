@@ -12,7 +12,8 @@ import processing.serial.*;
 Serial port;
 
 //PGraphics
-PGraphics layer;
+PGraphics layerCursor1;
+PGraphics layerCursor3;
 
 //Images
 PImage rocketIcon;
@@ -48,8 +49,9 @@ void setup() {
    // Processing window size
   size(600, 400);
 
-  // Creates layer
-  layer = createGraphics(width, height);
+  // Creates layerCursor1 & layerCursor1
+  layerCursor1 = createGraphics(width, height);
+  layerCursor3 = createGraphics(width, height);
 
   // Loads image
   rocketIcon = loadImage("images/rocket_launch_24dp_FFFFFF.png");
@@ -220,28 +222,28 @@ void draw() {
   cursor1Y = int(map(joystickVal[1], jv1LowBound, jv1UpBound, cursorULimit, cursorDLimit));
   
   // Draws cursor 1 in canvas
-  int layerX = margin * 2;
-  int layerY = statusBarHeight + topAppBarHeight + margin + padding28 * 6 + cursorAreaOffset;
-  int brushAreaWidth = 146 + layerX;
-  int brushAreaHeight = 102 + layerY;
-  layer.beginDraw();
+  int layerCursor1X = margin * 2;
+  int layerCursor1Y = statusBarHeight + topAppBarHeight + margin + padding28 * 6 + cursorAreaOffset;
+  int brushAreaWidth = 146 + layerCursor1X;
+  int brushAreaHeight = 102 + layerCursor1Y;
+  layerCursor1.beginDraw();
   if(joystickVal[4] == 0){  // If joystick button pressed, green brush draw is erased
-    layer.stroke(gray2);         // Gray brush
-    layer.strokeWeight(1);     // Brush thickness
-    for(int z = layerY; z < brushAreaHeight; z++){
-      for(int y = layerX; y < brushAreaWidth; y++){
-        layer.point(y, z);
+    layerCursor1.stroke(gray2);         // Gray brush
+    layerCursor1.strokeWeight(1);     // Brush thickness
+    for(int z = layerCursor1Y; z < brushAreaHeight; z++){
+      for(int y = layerCursor1X; y < brushAreaWidth; y++){
+        layerCursor1.point(y, z);
       }
     }
   }
   else{ // Green brush is drawn
-    layer.beginDraw();
-    layer.stroke(green1);         // White brush
-    layer.strokeWeight(5);     // Brush thickness
-    layer.point(cursor1X, cursor1Y);
+    layerCursor1.beginDraw();
+    layerCursor1.stroke(green1);         // White brush
+    layerCursor1.strokeWeight(5);     // Brush thickness
+    layerCursor1.point(cursor1X, cursor1Y);
   }
-  layer.endDraw();
-  image(layer, 0, 0);   // Draw the persistent brush layer
+  layerCursor1.endDraw();
+  image(layerCursor1, 0, 0);   // Draw the persistent brush layerCursor1
   circle(cursor1X, cursor1Y, cursorSize);
 
   // Draws card 2 cursor
@@ -260,6 +262,9 @@ void draw() {
   circle(cursor2X, cursor2Y, cursorSize);
 
   // Draws card 3 cursor
+  int cursor3RLimit = width - margin * 2 - cursorSize/2;
+  int cursor3LLimit = width - margin - cardWidth + cursorSize/2;
+  
   circle(cursor3X, cursor3Y, cursorSize);
 
   // Draws cards cursor areas
@@ -303,43 +308,3 @@ void parseLine(String line) {
     joystickVal[4] = int(values[4]);
   }
 }
-
-// int joystick1_PotA = 0;
-// int joystick1_PotB = 0;
-// int joystick1_SwitchA = 0;
-// int joystick2_PotA = 0;
-// int joystick2_PotB = 0;
-// int joystick3_SwitchA = 0;
-// int joystick3_SwitchB = 0;
-// int joystick3_SwitchC = 0;
-// int joystick3_SwitchD = 0;
-// int joystick3_SwitchE = 0;
-
-// #include <Esplora.h>
-
-// void setup() {
-//   Serial.begin(9600);
-// }
-
-// void loop() {
-//   int joyX = Esplora.readJoystickX();
-//   int joyY = Esplora.readJoystickY();
-//   int sliderVal = Esplora.readSlider();
-
-//   bool buttonUp    = Esplora.readButton(SWITCH_UP);
-//   bool buttonDown  = Esplora.readButton(SWITCH_DOWN);
-//   bool buttonLeft  = Esplora.readButton(SWITCH_LEFT);
-//   bool buttonRight = Esplora.readButton(SWITCH_RIGHT);
-//   bool joyButton   = Esplora.readJoystickSwitch();
-
-//   // Send as comma-separated values
-//   Serial.print(joyX); Serial.print(",");
-//   Serial.print(joyY); Serial.print(",");
-//   Serial.print(sliderVal); Serial.print(",");
-//   Serial.print(buttonUp); Serial.print(",");
-//   Serial.print(buttonDown); Serial.print(",");
-//   Serial.print(buttonLeft); Serial.print(",");
-//   Serial.print(buttonRight); Serial.print(",");
-//   Serial.println(joyButton);  // Now includes joystick button
-//   delay(100);
-// }
