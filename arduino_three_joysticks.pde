@@ -264,6 +264,15 @@ void draw() {
   // Draws card 3 cursor
   int cursor3RLimit = width - margin * 2 - cursorSize/2;
   int cursor3LLimit = width - margin - cardWidth + cursorSize/2;
+
+  if((cursor3X > cursor3LLimit) && (cursor3X < cursor3RLimit)){
+    if(joystickVal[6] == 0) cursor3Y--;
+    if(joystickVal[5] == 0) cursor3Y++;
+  }
+  if((cursor3X > cursor3LLimit) && (cursor3X < cursor3RLimit)){
+    if(joystickVal[7] == 0) cursor3X--;
+    if(joystickVal[8] == 0) cursor3X++;
+  }
   
   circle(cursor3X, cursor3Y, cursorSize);
 
