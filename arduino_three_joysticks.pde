@@ -228,7 +228,7 @@ void draw() {
   int brushAreaHeight = 102 + layerCursor1Y;
   layerCursor1.beginDraw();
   if(joystickVal[4] == 0){  // If joystick button pressed, green brush draw is erased
-    layerCursor1.stroke(gray2);         // Gray brush
+    layerCursor1.stroke(gray2);       // Gray brush
     layerCursor1.strokeWeight(1);     // Brush thickness
     for(int z = layerCursor1Y; z < brushAreaHeight; z++){
       for(int y = layerCursor1X; y < brushAreaWidth; y++){
@@ -238,7 +238,7 @@ void draw() {
   }
   else{ // Green brush is drawn
     layerCursor1.beginDraw();
-    layerCursor1.stroke(green1);         // White brush
+    layerCursor1.stroke(green1);      // White brush
     layerCursor1.strokeWeight(5);     // Brush thickness
     layerCursor1.point(cursor1X, cursor1Y);
   }
@@ -251,8 +251,8 @@ void draw() {
   int cursor2LLimit = margin * 3 + cardWidth + cursorSize/2;
   int jv2UpBound = 860;
   int jv2LowBound = 100;
-  int jv3UpBound = 920;
-  int jv3LowBound = 180;
+  int jv3UpBound = 180;
+  int jv3LowBound = 920;
   cursor2X = int(map(joystickVal[2], jv2LowBound, jv2UpBound, cursor2LLimit, cursor2RLimit));
   cursor2Y = int(map(joystickVal[3], jv3LowBound, jv3UpBound, cursorULimit, cursorDLimit));
   if(cursor2X < cursor2LLimit) cursor2X = cursor2LLimit;
@@ -289,23 +289,20 @@ void serialEvent(Serial port) {
   }
 }
 
+// Parse line manager
 void parseLine(String line) {
   String[] values = split(trim(line), ",");
- println(values.length);
   if (values.length == 11) {
-    joystickVal[0] = int(values[0]);
-    println(joystickVal[1]);
-    joystickVal[1] = int(values[1]);
-    joystickVal[2] = int(values[2]); // Joystick 2 Y axis
-    joystickVal[3] = int(values[3]); // Joystick 2 X axis
+    joystickVal[0] = int(values[0]); // Thumb Joystick Potentiometer X
+    joystickVal[1] = int(values[1]); // Thumb Joystick Potentiometer Y
+    joystickVal[2] = int(values[2]); // Thumb Slide Joystick Potentiometer X
+    joystickVal[3] = int(values[3]); // Thumb Slide Joystick Potentiometer Y
+    joystickVal[4] = int(values[4]); // Thumb Joystick Push Button
 
     int p = 5;
     for (int i = 0; i < 4; i++) {
-      joystickVal[p] = int(values[5 + i]);
+      joystickVal[p] = int(values[5 + i]); // 5 Way Tactile Switches
       p++;
     }
-
-    // Joystick push button
-    joystickVal[4] = int(values[4]);
   }
 }
