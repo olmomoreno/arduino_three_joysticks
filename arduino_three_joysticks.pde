@@ -291,16 +291,17 @@ void serialEvent(Serial port) {
 
 void parseLine(String line) {
   String[] values = split(trim(line), ",");
-
-  if (values.length == 8) {
+ println(values.length);
+  if (values.length == 11) {
     joystickVal[0] = int(values[0]);
+    println(joystickVal[1]);
     joystickVal[1] = int(values[1]);
     joystickVal[2] = int(values[2]); // Joystick 2 Y axis
     joystickVal[3] = int(values[3]); // Joystick 2 X axis
 
     int p = 5;
     for (int i = 0; i < 4; i++) {
-      joystickVal[p] = int(values[3 + i]);
+      joystickVal[p] = int(values[5 + i]);
       p++;
     }
 

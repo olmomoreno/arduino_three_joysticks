@@ -83,7 +83,9 @@ void loop() {
   Serial.print(",");
   }
   
-  Serial.println(" ");
+  Serial.println(1);
+
+  delay(1);
   
 }// End of main loop ==========================================================================================
  
