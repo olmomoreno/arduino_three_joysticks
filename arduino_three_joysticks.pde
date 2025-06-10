@@ -214,8 +214,8 @@ void draw() {
   int cursorDLimit = statusBarHeight + topAppBarHeight + margin + padding28 * 10 - cursorAreaOffset - cursorSize/2;
   int cursor1RLimit = cardWidth - cursorSize/2;
   int cursor1LLimit = margin * 2 + cursorSize/2;
-  int jv0UpBound = 1023;
-  int jv0LowBound = 0;
+  int jv0UpBound = 0;
+  int jv0LowBound = 1023;
   int jv1UpBound = 1023;
   int jv1LowBound = 0;
   cursor1X = int(map(joystickVal[0], jv0LowBound, jv0UpBound, cursor1LLimit, cursor1RLimit));
@@ -292,7 +292,7 @@ void serialEvent(Serial port) {
 // Parse line manager
 void parseLine(String line) {
   String[] values = split(trim(line), ",");
-  if (values.length == 11) {
+  if (values.length == 10) {
     joystickVal[0] = int(values[0]); // Thumb Joystick Potentiometer X
     joystickVal[1] = int(values[1]); // Thumb Joystick Potentiometer Y
     joystickVal[2] = int(values[2]); // Thumb Slide Joystick Potentiometer X

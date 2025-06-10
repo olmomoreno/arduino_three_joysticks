@@ -13,7 +13,7 @@
 //    D4 = 5-way Tactile Switch X
 //    D5 = 5-way Tactile Switch X
 //    D6 = 5-way Tactile Switch X
-//    D7 = 5-way Tactile Switch X
+//    D7 = 5-way Tactile Switch 2 (Center)
 // Abalog input pin list:
 //    A0 = Thumb Joystick Potentiometer X
 //    A1 = Thumb Joystick Potentiometer Y
@@ -54,12 +54,12 @@ void loop() {
   int firstPotentiometer = 0;
   int lastPotentiometer = 3;
 
-  // Read analog inputs (pins A0 to A4)
+  // Read analog inputs (pins A0 to A4) and store value in joystickPotentiometer
   for(int i = firstPotentiometer; i <= lastPotentiometer; i++){ 
     joystickPotentiometer[i] = analogRead(i);
   }
 
-  // Read digital inputs (pins 2 to 7)
+  // Read digital inputs (pins 2 to 7) and store the value in buttonState
   for(int i = firstDigitalPinInput; i <= lastDigitalPinInput; i++){ 
     buttonState[i - 2] = digitalRead(i);
   }
@@ -71,21 +71,28 @@ void loop() {
   }
 
   // Send values in integer format: e.g. "1" or "0"
-  for(int i = firstDigitalPinInput; i <= lastDigitalPinInput; i++){ 
-    int pushButtonValue = 0;
-    if (buttonState[i - 2] == LOW) {
-      pushButtonValue = 0;
-    } 
-    else {
-      pushButtonValue = 1;
-    }
-  Serial.print(pushButtonValue);
-  Serial.print(",");
+  int pushButtonValue = 0;
+  for(int i = firstDigitalPinInput; i <= lastDigitalPinInput - 1; i++){ 
+    pushButtonValue = booleanIntegerSelector(buttonState[i - 2]); // Select integer value from boolean
+    Serial.print(pushButtonValue); // Send the integer value
+    Serial.print(","); // Send a coma as separator
   }
-  
-  Serial.println(1);
+  pushButtonValue = booleanIntegerSelector(buttonState[lastDigitalPinInput - 2]); // Select integer value from boolean
+  Serial.println(pushButtonValue); // Send last value with new line format
 
-  delay(1);
+  delay(1); // Delay 1 milisecond
   
 }// End of main loop ==========================================================================================
+
+// Boolean to integer selector
+int booleanIntegerSelector(bool bolVal){
+  int intVal = 0;
+  if (bolVal == LOW) { // Check if boolean is zero
+    intVal = 0; // Integer is zero
+  } 
+  else {
+    intVal = 1; // Integer is one
+  }
+  return intVal;
+}
  
