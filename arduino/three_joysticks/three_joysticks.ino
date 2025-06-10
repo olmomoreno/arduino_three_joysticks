@@ -84,6 +84,7 @@ void loop() {
   
 }// End of main loop ==========================================================================================
 
+// booleanIntegerSelector() function ==========================================================================
 // Boolean to integer selector
 int booleanIntegerSelector(bool bolVal){
   int intVal = 0;
@@ -94,5 +95,5 @@ int booleanIntegerSelector(bool bolVal){
     intVal = 1; // Integer is one
   }
   return intVal;
-}
+}// End booleanIntegerSelector() ===============================================================================
  
