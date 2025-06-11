@@ -257,23 +257,21 @@ void draw() {
   cursor2Y = int(map(joystickVal[3], jv3LowBound, jv3UpBound, cursorULimit, cursorDLimit));
   if(cursor2X < cursor2LLimit) cursor2X = cursor2LLimit;
   if(cursor2X > cursor2RLimit) cursor2X = cursor2RLimit;
-  if(cursor2Y < cursorULimit) cursor2Y = cursorULimit;
-  if(cursor2Y > cursorDLimit) cursor2Y = cursorDLimit;
+  if(cursor2Y < cursorULimit)  cursor2Y = cursorULimit;
+  if(cursor2Y > cursorDLimit)  cursor2Y = cursorDLimit;
   circle(cursor2X, cursor2Y, cursorSize);
 
   // Draws card 3 cursor
-  int cursor3RLimit = width - margin * 2 - cursorSize/2;
-  int cursor3LLimit = width - margin - cardWidth + cursorSize/2;
-
-  if((cursor3X > cursor3LLimit) && (cursor3X < cursor3RLimit)){
-    if(joystickVal[6] == 0) cursor3Y--;
-    if(joystickVal[5] == 0) cursor3Y++;
-  }
-  if((cursor3X > cursor3LLimit) && (cursor3X < cursor3RLimit)){
-    if(joystickVal[7] == 0) cursor3X--;
-    if(joystickVal[8] == 0) cursor3X++;
-  }
-  
+  int cursor3RLimit = width - margin * 2 - cursorSize;
+  int cursor3LLimit = width - cardWidth + cursorSize/2;
+  if(joystickVal[5] == 0) cursor3Y++;
+  if(joystickVal[6] == 0) cursor3Y--;
+  if(joystickVal[7] == 0) cursor3X--;
+  if(joystickVal[8] == 0) cursor3X++;
+  if(cursor3X < cursor3LLimit) cursor3X = cursor3LLimit;
+  if(cursor3X > cursor3RLimit) cursor3X = cursor3RLimit;
+  if(cursor3Y < cursorULimit)  cursor3Y = cursorULimit;
+  if(cursor3Y > cursorDLimit)  cursor3Y = cursorDLimit;
   circle(cursor3X, cursor3Y, cursorSize);
 
   // Draws cards cursor areas
