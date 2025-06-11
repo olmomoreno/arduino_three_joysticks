@@ -2,7 +2,7 @@
 // three_joysticks.ino
 // Sketch tested on an Arduino UNO board
 // This Arduino sketch works with a Porcessing sketch (aduino_three_joysticks.pde)
-// The wiring of this sketch is described in XXX
+// The wiring of this sketch is described in the Fritzing sketch (three_joysticks.fzz) 
 // This sketch reads the values of the following joysticks and send it to the Porcessing sketch by serial communication:  
 //    a) Thumb Joystick, 3 potentiometers, 1 push button (SparkFun SKU: COM-09032, https://www.sparkfun.com/thumb-joystick.html)
 //    b) Thumb Slide Joystick, 2 potentiometers (SparkFun SKU: COM-09426, https://www.sparkfun.com/thumb-slide-joystick.html)
