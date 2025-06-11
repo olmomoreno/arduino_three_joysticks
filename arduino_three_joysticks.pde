@@ -1,7 +1,8 @@
 /*****************************************************************
 **  This Porcessing sketch works with an Arduino sketch         **
 **  (three_joysticks.ino)                                       **
-**  The wiring of this sketch is described in XXX               **
+**  The wiring of this sketch is described in the Fritzing      **
+**  sketch (three_joysticks.fzz)                                **
 **  SCENE: This scene design displays 3 interactive elements on **
 **  single independent cards: a)) Thumb Joystick, b) Thumb Sli- **
 **  der Joystick, and c) 5 Way Tactile Switch. The values X and **
