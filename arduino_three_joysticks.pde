@@ -194,8 +194,13 @@ void draw() {
 
   // Text variables for card 3
   int textOffset = 1;
+  String joystick3Button = "0";
+  if(joystickVal[5] == 0) joystick3Button = "3"; // 5 Way Tactile Switch 3
+  if(joystickVal[6] == 0) joystick3Button = "6"; // 5 Way Tactile Switch 6
+  if(joystickVal[7] == 0) joystick3Button = "1"; // 5 Way Tactile Switch 1
+  if(joystickVal[8] == 0) joystick3Button = "4"; // 5 Way Tactile Switch 4
   textFont(robotoRegular60, fontSize60);
-  text(joystickVal[4], cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * 5) - textOffset);
+  text(joystick3Button, cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * 5) - textOffset);
 
   // Writes card number variable subtitle
   cardTextX = margin * 2;
@@ -305,11 +310,10 @@ void parseLine(String line) {
     joystickVal[2] = int(values[2]); // Thumb Slide Joystick Potentiometer X
     joystickVal[3] = int(values[3]); // Thumb Slide Joystick Potentiometer Y
     joystickVal[4] = int(values[4]); // Thumb Joystick Push Button
-
-    int p = 5;
-    for (int i = 0; i < 4; i++) {
-      joystickVal[p] = int(values[5 + i]); // 5 Way Tactile Switches
-      p++;
-    }
+    joystickVal[5] = int(values[5]); // 5 Way Tactile Switch 3
+    joystickVal[6] = int(values[6]); // 5 Way Tactile Switch 6
+    joystickVal[7] = int(values[7]); // 5 Way Tactile Switch 1
+    joystickVal[8] = int(values[8]); // 5 Way Tactile Switch 4
+    joystickVal[9] = int(values[9]); // 5 Way Tactile Switch 2 (center)
   }
 }
