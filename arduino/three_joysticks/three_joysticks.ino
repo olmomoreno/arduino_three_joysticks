@@ -1,7 +1,7 @@
 //==============================================================================================================
 // three_joysticks.ino
 // Sketch tested on an Arduino UNO board
-// This arduino sketch works with a Porcessing sketch (aduino_three_joysticks.pde)
+// This Arduino sketch works with a Porcessing sketch (aduino_three_joysticks.pde)
 // The wiring of this sketch is described in XXX
 // This sketch reads the values of the following joysticks and send it to the Porcessing sketch by serial communication:  
 //    a) Thumb Joystick, 3 potentiometers, 1 push button (SparkFun SKU: COM-09032, https://www.sparkfun.com/thumb-joystick.html)
@@ -9,10 +9,10 @@
 //    c) 5-way Tactile Switch, 5 push buttons (SparkFun SKU: COM-10063, https://www.sparkfun.com/5-way-tactile-switch.html)
 // Digital input pin list:
 //    D2 = Thumb Joystic Switch A
-//    D3 = 5-way Tactile Switch X
-//    D4 = 5-way Tactile Switch X
-//    D5 = 5-way Tactile Switch X
-//    D6 = 5-way Tactile Switch X
+//    D3 = 5-way Tactile Switch 3
+//    D4 = 5-way Tactile Switch 6
+//    D5 = 5-way Tactile Switch 1
+//    D6 = 5-way Tactile Switch 4
 //    D7 = 5-way Tactile Switch 2 (Center)
 // Abalog input pin list:
 //    A0 = Thumb Joystick Potentiometer X

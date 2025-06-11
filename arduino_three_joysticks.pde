@@ -1,8 +1,16 @@
 /*****************************************************************
-**  SCENE: This scene design consist of 3 interactive elements, **
-**  it uses Arduino with 3 joysticks pluged into it. The potent-**
-**  iometers and switches values are diplay on each joystick    **
-**  card area.                                                  **
+**  This Porcessing sketch works with an Arduino sketch         **
+**  (three_joysticks.ino)                                       **
+**  The wiring of this sketch is described in XXX               **
+**  SCENE: This scene design displays 3 interactive elements on **
+**  single independent cards: a)) Thumb Joystick, b) Thumb Sli- **
+**  der Joystick, and c) 5 Way Tactile Switch. The values X and **
+**  Y of joysticks (a) and (b) are shown in card (1) and (2),   **
+**  card (3) shows the switch pressed from joystick (c). All    **
+**  cards display a cursor at the bottom. The cursor is comman- **
+**  ded by each joystick. In the case of joystick (a), the cur- **
+**  sor acts as a painting brush, when the push button is       **
+**  pressed, the paint is erased from the canvas.               **
 *****************************************************************/
 
 // Libraries
@@ -29,10 +37,10 @@ PFont robotoRegular60;
 // Color definitions
 color green1 = color(29,185,84); 
 color green2 = color(35, 124, 102); 
-color gray1 = color(33, 33, 33);
-color gray2 = color(83, 83, 83);
-color white = color(255);
-color black = color(0);
+color gray1 =  color(33, 33, 33);
+color gray2 =  color(83, 83, 83);
+color white =  color(255);
+color black =  color(0);
 
 // Arduino variables
 int[] joystickVal = new int[10];
@@ -54,8 +62,11 @@ void setup() {
   // Loads image
   rocketIcon = loadImage("images/rocket_launch_24dp_FFFFFF.png");
   xolabLogo  = loadImage("images/xolabLogo.png");
+  //image: Thumb Joystick, 3 potentiometers, 1 push button (SparkFun SKU: COM-09032, https://www.sparkfun.com/thumb-joystick.html)
   joystick[0] = loadImage("images/thumb_joystick.png");
+  //image: Thumb Slide Joystick, 2 potentiometers (SparkFun SKU: COM-09426, https://www.sparkfun.com/thumb-slide-joystick.html)
   joystick[1] = loadImage("images/thumb-slide-joystick.jpeg");
+  //image: 5-way Tactile Switch, 5 push buttons (SparkFun SKU: COM-10063, https://www.sparkfun.com/5-way-tactile-switch.html)
   joystick[2] = loadImage("images/5_way _tactile_switch.jpeg");
 
   // Creates font
