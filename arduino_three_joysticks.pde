@@ -13,7 +13,6 @@ Serial port;
 
 //PGraphics
 PGraphics layerCursor1;
-PGraphics layerCursor3;
 
 //Images
 PImage rocketIcon;
@@ -51,7 +50,6 @@ void setup() {
 
   // Creates layerCursor1 & layerCursor1
   layerCursor1 = createGraphics(width, height);
-  layerCursor3 = createGraphics(width, height);
 
   // Loads image
   rocketIcon = loadImage("images/rocket_launch_24dp_FFFFFF.png");
@@ -99,7 +97,7 @@ void draw() {
   fill(gray1);
   rect(0, statusBarHeight, width, topAppBarHeight);
 
-  // Draws cards (3)
+  // Draws cards (card 1, card 2 and card 3)
   int numCards = 3;
   int cardWidth = (width - (margin * 4))/numCards;
   int roundCorners = 25;
@@ -110,7 +108,7 @@ void draw() {
     cardIni = cardIni + margin + cardWidth;
   }
 
-  // Draws image background frame
+  // Draws image background frame (card 1, card 2 and card 3)
   int iconFrameSize = 46;
   int iconFrameX = cardWidth - iconFrameSize;
   int iconFrameYOffset = 10;
@@ -132,7 +130,7 @@ void draw() {
   int logoOffset = 3;
   image(xolabLogo, (width/2) - (logoWidth/2), statusBarHeight + logoOffset, logoWidth, logoHeight);
 
-  // Draws cards image
+  // Draws cards image (card 1, card 2 and card 3)
   int imageSize = 40;
   int imageOffset = 3;
   iconFrameX = cardWidth - iconFrameSize;
@@ -150,7 +148,7 @@ void draw() {
   textFont(robotoRegular16, fontSize16);
   text(time, margin, statusBarHeight - textOffsetHeight);
 
-  // Writes cards titles
+  // Writes cards titles (card 1, card 2 and card 3)
   int cardTextX = margin * 2;
   String[] cardTitle = { "Thumb joystick", "Thumb slide joy.", "5 way tactile sw." };
   textFont(robotoRegular20, fontSize20);
@@ -159,7 +157,7 @@ void draw() {
     cardTextX = cardTextX + margin + cardWidth;
   }
 
-  // Writes card subtitle
+  // Writes cards subtitles (card 1, card 2 and card 3)
   cardTextX = margin * 2;
   String[] cardSubTitle = { "2 potentiometers and 1 sw.", "2 potentiometers", "5 switches" };
   textFont(robotoRegular12, fontSize12);
@@ -168,14 +166,14 @@ void draw() {
     cardTextX = cardTextX + margin + cardWidth;
   }
 
-  // Writes cards numbers variables
+  // Writes cards numbers variables (card 1 and card 2)
   cardTextX = margin * 2;
   String[] joystickPotentiometer = { "X: ", "Y: " };
   int paddingIndex = 4;
   int joystickValIndex = 0;
   textFont(robotoRegular24, fontSize24);
 
-  // Text variables for card 1
+  // Text variables for card 1 (Thumb Joystick)
   for(int i = 0; i < joystickPotentiometer.length; i++){
     text(joystickPotentiometer[i] + joystickVal[joystickValIndex], cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * paddingIndex));
     paddingIndex++;
@@ -184,7 +182,7 @@ void draw() {
   paddingIndex = 4;
   cardTextX = cardTextX + margin + cardWidth;
 
-  // Text variables for card 2
+  // Text variables for card 2 (Thumb Slide Joystick)
   for(int i = 0; i < joystickPotentiometer.length; i++){
     text(joystickPotentiometer[i] + joystickVal[joystickValIndex], cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * paddingIndex));
     paddingIndex++;
@@ -192,7 +190,7 @@ void draw() {
   }
   cardTextX = cardTextX + margin + cardWidth;
 
-  // Text variables for card 3
+  // Text variables for card 3 (5 Way Tactile Switch)
   int textOffset = 1;
   String joystick3Button = "0";
   if(joystickVal[5] == 0) joystick3Button = "3"; // 5 Way Tactile Switch 3
@@ -202,7 +200,7 @@ void draw() {
   textFont(robotoRegular60, fontSize60);
   text(joystick3Button, cardTextX, statusBarHeight + topAppBarHeight + margin + (padding28 * 5) - textOffset);
 
-  // Writes card number variable subtitle
+  // Writes card number variable subtitle (card 1, card 2 and card 3)
   cardTextX = margin * 2;
   String[] cardSubVar = { "Joystick 1 values", "Joystick 2 values", "Joystick 3 values" };
   textFont(robotoRegular12, fontSize12);
@@ -211,7 +209,7 @@ void draw() {
     cardTextX = cardTextX + margin + cardWidth;
   }
 
-  // Draws card 1 cursor
+  // Draws card 1 cursor (Thumb Joystick)
   int cursorAreaOffset = 5;
   fill(white);
   int cursorSize = 10;
@@ -226,7 +224,8 @@ void draw() {
   cursor1X = int(map(joystickVal[0], jv0LowBound, jv0UpBound, cursor1LLimit, cursor1RLimit));
   cursor1Y = int(map(joystickVal[1], jv1LowBound, jv1UpBound, cursorULimit, cursorDLimit));
   
-  // Draws cursor 1 in canvas
+  // Draws cursor 1 (Thumb Joystick) in canvas
+  // Cursor 1 acts as a paint brush
   int layerCursor1X = margin * 2;
   int layerCursor1Y = statusBarHeight + topAppBarHeight + margin + padding28 * 6 + cursorAreaOffset;
   int brushAreaWidth = 146 + layerCursor1X;
@@ -251,7 +250,7 @@ void draw() {
   image(layerCursor1, 0, 0);   // Draw the persistent brush layerCursor1
   circle(cursor1X, cursor1Y, cursorSize);
 
-  // Draws card 2 cursor
+  // Draws card 2 cursor (Thumb Slide Joystick)
   int cursor2RLimit = margin + cardWidth * 2 - cursorSize/2;
   int cursor2LLimit = margin * 3 + cardWidth + cursorSize/2;
   int jv2UpBound = 860;
@@ -266,7 +265,7 @@ void draw() {
   if(cursor2Y > cursorDLimit)  cursor2Y = cursorDLimit;
   circle(cursor2X, cursor2Y, cursorSize);
 
-  // Draws card 3 cursor
+  // Draws card 3 cursor (5 Way Tactile Switch)
   int cursor3RLimit = width - margin * 2 - cursorSize;
   int cursor3LLimit = width - cardWidth + cursorSize/2;
   if(joystickVal[5] == 0) cursor3Y++;
@@ -279,7 +278,7 @@ void draw() {
   if(cursor3Y > cursorDLimit)  cursor3Y = cursorDLimit;
   circle(cursor3X, cursor3Y, cursorSize);
 
-  // Draws cards cursor areas
+  // Draws cards cursor areas (card 1, card 2 and card 3)
   cursorAreaOffset = 10;
   int cursorAreaWidth = 146;
   int squareIni = margin * 2;
@@ -292,7 +291,8 @@ void draw() {
   }
 }
 
-// Serial event manager
+// Serial event manager (source: Arduino)
+// This function receives the data frame that contains the joystick sensor values splitted by a separator ","
 void serialEvent(Serial port) {
   String line = port.readStringUntil('\n');
   if (line != null) {
@@ -301,7 +301,10 @@ void serialEvent(Serial port) {
   }
 }
 
+// |-- This is a subfunction of serialEvent() --|
 // Parse line manager
+// This function sorts the joystick sensor values from the data frame into individual variables,
+// and removes the separator ","
 void parseLine(String line) {
   String[] values = split(trim(line), ",");
   if (values.length == 10) {
