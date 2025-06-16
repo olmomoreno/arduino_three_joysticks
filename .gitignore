@@ -1,0 +1,15 @@
+# Ignore VS Code settings
+.vscode/
+*.code-workspace
+
+# Ignore build/output folders
+**/build/
+**/out/
+**/bin/
+
+# Ignore compiled Java files
+*.class
+
+# Ignore logs, temp files
+*.log
+*.tmp
