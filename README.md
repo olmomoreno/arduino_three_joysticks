@@ -64,7 +64,7 @@
     <li>
       <a href="#-getting-started">Getting Started</a>
       <ul>
-        <li><a href="#-installation">Installation (Processing)</a></li>
+        <li><a href="#-installation-(processing)">Installation (Processing)</a></li>
          <li><a href="#-opening">Opening</a></li>
       </ul>
     </li>
@@ -103,7 +103,7 @@ This is an interactive Processing and Arduino sketch. It displays three cards in
 | 🔢 Qty | 🧩 Component                  | 🔍 Description                           | 🔗 Link |
 |-------:|------------------------------|-------------------------------------------|:--------:|
 | 1️⃣    | 🎮 **Thumb Joystick**        | Analog joystick module for X/Y control    | [SparkFun Thumb Joystick](https://www.sparkfun.com/thumb-joystick.html) |
-| 1️⃣    | 🎚️ **Slide Joystick**        | Linear analog slider (X-axis)            | [SparkFun Slide Joystick](https://www.sparkfun.com/thumb-slide-joystick.html) |
+| 1️⃣    | 🎚️ **Slide Joystick**        | Linear analog slider (X-Y axis)            | [SparkFun Slide Joystick](https://www.sparkfun.com/thumb-slide-joystick.html) |
 | 1️⃣    | 🕹️ **5-Way Tactile Switch**  | Switch with up/down/left/right/press     | [SparkFun 5‑Way Tactile Switch](https://www.sparkfun.com/5-way-tactile-switch.html) |
 | 1️⃣    | 💡 **Arduino UNO R3**        | Main microcontroller board               | [SparkFun Arduino UNO R3](https://www.sparkfun.com/arduino-uno-r3.html) |
 
