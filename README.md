@@ -170,7 +170,35 @@ To open the three_joysticks.ino sketch in Arduino:
 > It is highly recommended that before running the Processing sketch, you download the Arduino sketch to the Arduino UNO board and then run the Processing sketch.
 
 > [!WARNING]  
-> If you run the Processing sketch first and then you try to download the Arduino sketch to the Arduino UNO board, the serial communication port in the Processing skectch is running;, you will experience a communication error when trying to download the Arduino skecth to the Arduino UNO board because the serial communication port is open.
+> If you run the Processing sketch first and then you try to download the Arduino sketch to the Arduino UNO board, the serial communication port in the Processing skectch is running; you will experience a communication error when trying to download the Arduino skecth to the Arduino UNO board because the serial communication port is open.
+
+### 🧩 Installation
+Follow these steps to install Fritzing on your computer:
+
+#### 🖥️ For Windows
+1. 🔽 Download the latest version of Fritzing from the official website: https://fritzing.org/download
+2. 📦 Run the downloaded .exe installer and follow the setup instructions.
+3. 🖱️ After installation, launch Fritzing from your Start menu or desktop.
+4. ✅ You're ready to start building circuit diagrams!
+
+#### 🐧 For Linux
+1. 🔽 Download the Linux version (.tar.bz2) from: https://fritzing.org/download
+2. 📦 Extract the archive to a folder of your choice:
+```bash
+tar -xvjf fritzing-*.tar.bz2
+```
+3. 💻 Open a terminal, navigate to the extracted folder, and run:
+```bash
+./Fritzing
+```
+### 📂 Opening
+To open the square_bouncing circuit diagram in Fritzing:
+1. 🧭 Launch the Fritzing application.
+2. 📁 Go to File > Open...
+3. 📂 Navigate to the folder fritzing/
+4. 📄 Select the three_joysticks.fzz file.
+5. 🛠️ The project will open in the Breadboard, Schematic, or PCB view depending on the saved state.
+6. ✏️ You can now view, edit, or export the circuit diagram.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
