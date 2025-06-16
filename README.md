@@ -64,7 +64,7 @@
     <li>
       <a href="#-getting-started">Getting Started</a>
       <ul>
-        <li><a href="#-installation">Installation</a></li>
+        <li><a href="#-installation">Installation (Processing)</a></li>
          <li><a href="#-opening">Opening</a></li>
       </ul>
     </li>
