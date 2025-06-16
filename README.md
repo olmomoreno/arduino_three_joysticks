@@ -82,7 +82,7 @@
 <!-- ABOUT THE PROJECT -->
 ## 📖 About The Project
 
-[![Square_bounces][product-screenshot]](https://github.com/olmomoreno/square-bounces)
+[![Arduino_three_joysticks][product-screenshot]](https://github.com/olmomoreno/arduino_three_joysticks)
 
 This is an interactive Processing sketch. It displays two main areas in the window: a) a card control element (left) and b) an animation (right). The card control involves a slider that changes the speed value of a square that bounces horizontally when the mouse is pressed. The square is horizontally displaced from side to side, once the square´s edge reaches the left or right limit, it automatically changes direction. There are 20 different speeds that can be adjusted to increase or decrease the square´s displacement speed. The card´s slider is active when the mouse hovers and is pressed on the slider´s button. Once the mouse is released, the slider´s button is unactive.
 
@@ -332,7 +332,7 @@ Template adapted from [othneildrew/Best-README-Template](https://github.com/othn
 [license-url]: https://github.com/olmomoreno/arduino_three_joysticks/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: data/images/square_bounces.gif
+[product-screenshot]: data/images/arduino_three_joysticks.png
 [processing-shield]: https://img.shields.io/badge/Designed_for-Processing-FFFFFF.svg?style=for-the-badge&logo=processingfoundation
 [processing_second-shield]: https://img.shields.io/badge/Processing-006699.svg?style=for-the-badge&logo=processingfoundation
 [processing-url]: https://processing.org/
