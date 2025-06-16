@@ -91,6 +91,7 @@ This is an interactive Processing sketch. It displays two main areas in the wind
 ### 🛠️ Built With
 
 * [![Processing][processing-shield]][processing-url]
+* [![Arduino][arduino-shield]][arduino-url]
 * [![VSCode][vscode-shield]][vscode-url]
 
 
@@ -332,5 +333,7 @@ Template adapted from [othneildrew/Best-README-Template](https://github.com/othn
 [processing-shield]: https://img.shields.io/badge/Designed_for-Processing-FFFFFF.svg?style=for-the-badge&logo=processingfoundation
 [processing_second-shield]: https://img.shields.io/badge/Processing-006699.svg?style=for-the-badge&logo=processingfoundation
 [processing-url]: https://processing.org/
+[arduino-shield]: https://img.shields.io/badge/Developed_with-Arduino-FFFFFF.svg?style=for-the-badge&logo=arduino
+[arduino-url]: [https://www.arduino.cc//](https://www.arduino.cc/)
 [vscode-shield]: https://img.shields.io/badge/Coded_with-VSCode-FFFFFF.svg?style=for-the-badge
 [vscode-url]: https://code.visualstudio.com/
