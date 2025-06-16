@@ -4,8 +4,8 @@
 **  The wiring of this sketch is described in the Fritzing      **
 **  sketch (three_joysticks.fzz)                                **
 **  SCENE: This scene design displays 3 interactive elements on **
-**  single independent cards: a)) Thumb Joystick, b) Thumb Sli- **
-**  der Joystick, and c) 5 Way Tactile Switch. The values X and **
+**  single independent cards: a) Thumb Joystick, b) Thumb Sli-  **
+**  de Joystick, and c) 5 Way Tactile Switch. The values X and  **
 **  Y of joysticks (a) and (b) are shown in card (1) and (2),   **
 **  card (3) shows the switch pressed from joystick (c). All    **
 **  cards display a cursor at the bottom. The cursor is comman- **
