@@ -84,7 +84,7 @@
 
 [![Arduino_three_joysticks][product-screenshot]](https://github.com/olmomoreno/arduino_three_joysticks)
 
-This is an interactive Processing sketch. It displays two main areas in the window: a) a card control element (left) and b) an animation (right). The card control involves a slider that changes the speed value of a square that bounces horizontally when the mouse is pressed. The square is horizontally displaced from side to side, once the square´s edge reaches the left or right limit, it automatically changes direction. There are 20 different speeds that can be adjusted to increase or decrease the square´s displacement speed. The card´s slider is active when the mouse hovers and is pressed on the slider´s button. Once the mouse is released, the slider´s button is unactive.
+This is an interactive Processing and Arduino sketch. It displays three cards in the window: a) Thumb Joystick card, b) Thumb Slide Joystick and c) 5 Way Tactile Switch Joystick.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
