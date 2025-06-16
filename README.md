@@ -21,29 +21,31 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![Processing][processing_second-shield]][processing-url]
+[![Arduino][arduino_second-shield]][arduino-url]
+[![Fritzing][fritzing_second-shield]][fritzing-url]
 
 
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/olmomoreno/square-bounces">
+  <a href="https://github.com/olmomoreno/arduino_three_joysticks">
     <img src="data/images/processing_2021_logo.png" alt="Logo" width="100" height="100">
   </a>
 
-  <h3 align="center">Square bounces</h3>
+  <h3 align="center">Arduino three joysticks </h3>
 
   <p align="center">
-    A Processing interactive sketch
+    A Processing and Arduino interactive sketch
     <br />
-    <a href="https://github.com/olmomoreno/square-bounces"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/olmomoreno/arduino_three_joysticks"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/olmomoreno/square-bounces">View Demo</a>
+    <a href="https://github.com/olmomoreno/arduino_three_joysticks">View Demo</a>
     &middot;
-    <a href="https://github.com/olmomoreno/square-bounces/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/olmomoreno/arduino_three_joysticks/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
-    <a href="https://github.com/olmomoreno/square-bounces/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/olmomoreno/arduino_three_joysticks/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
@@ -318,16 +320,16 @@ Template adapted from [othneildrew/Best-README-Template](https://github.com/othn
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/olmomoreno/square-bounces.svg?style=for-the-badge
-[contributors-url]: https://github.com/olmomoreno/square-bounces/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/olmomoreno/square-bounces.svg?style=for-the-badge
-[forks-url]: https://github.com/olmomoreno/square-bounces/network/members
-[stars-shield]: https://img.shields.io/github/stars/olmomoreno/square-bounces.svg?style=for-the-badge
-[stars-url]: https://github.com/olmomoreno/square-bounces/stargazers
-[issues-shield]: https://img.shields.io/github/issues/olmomoreno/square-bounces.svg?style=for-the-badge
-[issues-url]: https://github.com/olmomoreno/square-bounces/issues
+[contributors-shield]: https://img.shields.io/github/contributors/olmomoreno/arduino_three_joysticks.svg?style=for-the-badge
+[contributors-url]: https://github.com/olmomoreno/arduino_three_joysticks/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/olmomoreno/arduino_three_joysticks.svg?style=for-the-badge
+[forks-url]: https://github.com/olmomoreno/arduino_three_joysticks/network/members
+[stars-shield]: https://img.shields.io/github/stars/olmomoreno/arduino_three_joysticks.svg?style=for-the-badge
+[stars-url]: https://github.com/olmomoreno/arduino_three_joysticks/stargazers
+[issues-shield]: https://img.shields.io/github/issues/olmomoreno/arduino_three_joysticks.svg?style=for-the-badge
+[issues-url]: https://github.com/olmomoreno/arduino_three_joysticks/issues
 [license-shield]:  https://img.shields.io/badge/LICENSE-MIT_LICENSE-FFFFFF.svg?style=for-the-badge
-[license-url]: https://github.com/olmomoreno/square-bounces/blob/main/LICENSE.txt
+[license-url]: https://github.com/olmomoreno/arduino_three_joysticks/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: data/images/square_bounces.gif
@@ -335,8 +337,10 @@ Template adapted from [othneildrew/Best-README-Template](https://github.com/othn
 [processing_second-shield]: https://img.shields.io/badge/Processing-006699.svg?style=for-the-badge&logo=processingfoundation
 [processing-url]: https://processing.org/
 [arduino-shield]: https://img.shields.io/badge/Developed_with-Arduino-FFFFFF.svg?style=for-the-badge&logo=arduino
-[arduino-url]: [https://www.arduino.cc//](https://www.arduino.cc/)
+[arduino_second-shield]: https://img.shields.io/badge/Arduino-006699.svg?style=for-the-badge&logo=arduino
+[arduino-url]: https://www.arduino.cc/
 [fritzing-shield]: https://img.shields.io/badge/Documented_with-Fritzing-FFFFFF.svg?style=for-the-badge&logo=fritzing
-[fritzing-url]: [https://fritzing.org//](https://fritzing.org/)
+[fritzing_second-shield]: https://img.shields.io/badge/Fritzing-006699.svg?style=for-the-badge&logo=fritzing
+[fritzing-url]: https://fritzing.org/
 [vscode-shield]: https://img.shields.io/badge/Coded_with-VSCode-FFFFFF.svg?style=for-the-badge
 [vscode-url]: https://code.visualstudio.com/
