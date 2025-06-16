@@ -93,9 +93,18 @@ This is an interactive Processing sketch. It displays two main areas in the wind
 * [![Processing][processing-shield]][processing-url]
 * [![VSCode][vscode-shield]][vscode-url]
 
+
+### 📋 Bill of Materials (BoM)
+
+| 🔢 Qty | 🧩 Component                  | 🔍 Description                           | 🔗 Link |
+|-------:|------------------------------|-------------------------------------------|:--------:|
+| 1️⃣    | 🎮 **Thumb Joystick**        | Analog joystick module for X/Y control    | [SparkFun Thumb Joystick](https://www.sparkfun.com/thumb-joystick.html) |
+| 1️⃣    | 🎚️ **Slide Joystick**        | Linear analog slider (X-axis)            | [SparkFun Slide Joystick](https://www.sparkfun.com/thumb-slide-joystick.html) |
+| 1️⃣    | 🕹️ **5-Way Tactile Switch**  | Switch with up/down/left/right/press     | [SparkFun 5‑Way Tactile Switch](https://www.sparkfun.com/5-way-tactile-switch.html) |
+| 1️⃣    | 💡 **Arduino UNO R3**        | Main microcontroller board               | [SparkFun Arduino UNO R3](https://www.sparkfun.com/arduino-uno-r3.html) |
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- GETTING STARTED -->
 ## 🚀 Getting Started
@@ -172,7 +181,7 @@ To open the three_joysticks.ino sketch in Arduino:
 > [!WARNING]  
 > If you run the Processing sketch first and then you try to download the Arduino sketch to the Arduino UNO board, the serial communication port in the Processing skectch is running; you will experience a communication error when trying to download the Arduino skecth to the Arduino UNO board because the serial communication port is open.
 
-### 🧩 Installation
+### 🧩 Installation (Fritzing)
 Follow these steps to install Fritzing on your computer:
 
 #### 🖥️ For Windows
