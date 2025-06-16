@@ -254,7 +254,7 @@ void draw() {
   }
   else{ // Green brush is drawn
     layerCursor1.beginDraw();
-    layerCursor1.stroke(green1);      // White brush
+    layerCursor1.stroke(green1);      // Green brush
     layerCursor1.strokeWeight(5);     // Brush thickness
     layerCursor1.point(cursor1X, cursor1Y);
   }
