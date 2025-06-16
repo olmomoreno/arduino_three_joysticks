@@ -145,12 +145,13 @@ Follow these steps to install **Arduino IDE** on your computer:
 1. 🔽 Download the Linux version from: https://www.arduino.cc/en/software
 2. 📦 Extract the downloaded archive (.tar.xz) to a folder of your choice.
 3. 💻 Open a terminal, navigate to the extracted folder, and run the install script:
-   ```bash
+```bash
 ./install.sh
-
+```
 4. 🏁 Launch the Arduino IDE by running:
-   ```bash
+```bash
 arduino
+```
 
 ### 📂 Opening
 
@@ -164,6 +165,12 @@ To open the three_joysticks.ino sketch in Arduino:
 4. 🔌 Connect your Arduino board via USB.
 5. ✅ Select the correct board and port from the Tools menu.
 6.  ⬆️ Click the Upload button (right arrow icon) to upload the sketch to your Arduino.
+
+> [!TIP]
+> It is highly recommended that before running the Processing sketch, you download the Arduino sketch to the Arduino UNO board and then run the Processing sketch.
+
+> [!WARNING]  
+> If you run the Processing sketch first and then you try to download the Arduino sketch to the Arduino UNO board, the serial communication port in the Processing skectch is running;, you will experience a communication error when trying to download the Arduino skecth to the Arduino UNO board because the serial communication port is open.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -233,8 +240,8 @@ Don't forget to give the project a star! Thanks again!
 
 ### 🏆 Top contributors:
 
-<a href="https://github.com/olmomoreno/square-bounces/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=olmomoreno/square-bounces" alt="contrib.rocks image" />
+<a href="https://github.com/olmomoreno/arduino_three_joysticks/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=olmomoreno/arduino_three_joysticks" alt="contrib.rocks image" />
 </a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -255,7 +262,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Olmo A. Moreno F. - [Linkedin](https://www.linkedin.com/in/olmo-alonso-moreno-franco/)
 
-Project Link: [https://github.com/olmomoreno/square-bounces](https://github.com/olmomoreno/arduino_three_joysticks)
+Project Link: [https://github.com/olmomoreno/arduino_three_joysticks](https://github.com/olmomoreno/arduino_three_joysticks)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
