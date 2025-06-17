@@ -59,13 +59,18 @@
       <a href="#-about-the-project">About The Project</a>
       <ul>
         <li><a href="#%EF%B8%8F-built-with">Built With</a></li>
+        <li><a href="#-bill-of-materials-bom">Bill of Materials (BoM)</a></li>
       </ul>
     </li>
     <li>
       <a href="#-getting-started">Getting Started</a>
       <ul>
-        <li><a href="#-installation-(processing)">Installation (Processing)</a></li>
-         <li><a href="#-opening">Opening</a></li>
+        <li><a href="#-installation-processing">Installation (Processing)</a></li>
+         <li><a href="#-opening-processing">Opening (Processing)</a></li>
+        <li><a href="#-installation-arduino">Installation (Arduino)</a></li>
+        <li><a href="#-opening-arduino">Opening (Arduino)</a></li>
+        <li><a href="#-installation-fritzing">Installation (Fritzing)</a></li>
+        <li><a href="#-opening-fritzing">Opening (Fritzing)</a></li>
       </ul>
     </li>
     <li><a href="#%EF%B8%8F-usage">Usage</a></li>
@@ -84,7 +89,7 @@
 
 [![Arduino_three_joysticks][product-screenshot]](https://github.com/olmomoreno/arduino_three_joysticks)
 
-This is an interactive Processing and Arduino sketch. It displays three cards in the window: a) Thumb Joystick card, b) Thumb Slide Joystick and c) 5 Way Tactile Switch Joystick.
+This is an interactive Processing and Arduino sketch. It displays three cards in the window: a) Thumb Joystick card, b) Thumb Slide Joystick, and c) 5 Way Tactile Switch Joystick. The Arduino UNO Board performs the data acquisition of the 3 joysticks, the schematic diagram is provided in the Wiring Section. Once the Arduino UNO Board reads the joysticks sensors, it sends a serial data frame to the Processing sketch. The joystick (a) displays the X and Y values from the joystick's potentiometers (ranged from 0 to 1023). In the card interactive area, a white cursor is placed that corresponds to the joystick's potentiometer values. It also acts as a paint brush (green colour) over the canvas; once the joystick’s push button is pressed, the canvas is cleared. In the case of the joystick (b), the card displays the X and Y values from the joystick's potentiometers (ranged from 0 to 1023). In the card interactive area, the white cursor displaced the joystick’s potentiometer values. Finally, the joystick (c) card is presented with the number of buttons pressed. In the card's interactive area, the white cursor follows the pressed button direction. This project was developed in the Wearable Robots, Exoskeletons, and Exosuits Laboratory (XoLab).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -103,10 +108,20 @@ This is an interactive Processing and Arduino sketch. It displays three cards in
 | 🔢 Qty | 🧩 Component                  | 🔍 Description                           | 🔗 Link |
 |-------:|------------------------------|-------------------------------------------|:--------:|
 | 1️⃣    | 🎮 **Thumb Joystick**        | Analog joystick module for X/Y control    | [SparkFun Thumb Joystick](https://www.sparkfun.com/thumb-joystick.html) |
-| 1️⃣    | 🎚️ **Slide Joystick**        | Linear analog slider (X-Y axis)            | [SparkFun Slide Joystick](https://www.sparkfun.com/thumb-slide-joystick.html) |
+| 1️⃣    | 🎚️ **Slide Joystick**        | Linear analog slider (X/Y axis)            | [SparkFun Slide Joystick](https://www.sparkfun.com/thumb-slide-joystick.html) |
 | 1️⃣    | 🕹️ **5-Way Tactile Switch**  | Switch with up/down/left/right/press     | [SparkFun 5‑Way Tactile Switch](https://www.sparkfun.com/5-way-tactile-switch.html) |
 | 1️⃣    | 💡 **Arduino UNO R3**        | Main microcontroller board               | [SparkFun Arduino UNO R3](https://www.sparkfun.com/arduino-uno-r3.html) |
 
+
+### 🗺️ Schematic Diagram
+
+This is the breadboard diagram of Arduino UNO Board and the three joysticks designed in Friitzing.
+
+[![Arduino_three_joysticks_bradboard][breadboard-screenshot]](https://github.com/olmomoreno/arduino_three_joysticks)
+
+This is the schematic diagram of Arduino UNO Board and the three joysticks designed in Friitzing.
+
+[![Arduino_three_joysticks_schematic][schematic-screenshot]](https://github.com/olmomoreno/arduino_three_joysticks)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -133,7 +148,7 @@ Follow these steps to install **Processing** on your computer:
    ```bash
    ./processing
 
-### 📂 Opening
+### 📂 Opening (Processing)
 
 To open the arduino_three_joysticks sketch in Processing:
 
@@ -166,7 +181,7 @@ Follow these steps to install **Arduino IDE** on your computer:
 arduino
 ```
 
-### 📂 Opening
+### 📂 Opening (Arduino)
 
 To open the three_joysticks.ino sketch in Arduino:
 
@@ -204,7 +219,7 @@ tar -xvjf fritzing-*.tar.bz2
 ```bash
 ./Fritzing
 ```
-### 📂 Opening
+### 📂 Opening (Fritzing)
 To open the square_bouncing circuit diagram in Fritzing:
 1. 🧭 Launch the Fritzing application.
 2. 📁 Go to File > Open...
@@ -333,6 +348,8 @@ Template adapted from [othneildrew/Best-README-Template](https://github.com/othn
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: data/images/arduino_three_joysticks.png
+[breadboard-screenshot]: data/images/three_joysticks_bb.jpg
+[schematic-screenshot]: data/images/three_joysticks_schem.jpg
 [processing-shield]: https://img.shields.io/badge/Designed_for-Processing-FFFFFF.svg?style=for-the-badge&logo=processingfoundation
 [processing_second-shield]: https://img.shields.io/badge/Processing-006699.svg?style=for-the-badge&logo=processingfoundation
 [processing-url]: https://processing.org/
