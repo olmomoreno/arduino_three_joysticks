@@ -59,6 +59,7 @@
       <a href="#-about-the-project">About The Project</a>
       <ul>
         <li><a href="#%EF%B8%8F-built-with">Built With</a></li>
+        <li><a href="#-bill-of-materials-bom">Bill of Materials (BoM)</a></li>
       </ul>
     </li>
     <li>
