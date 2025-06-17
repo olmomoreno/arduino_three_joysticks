@@ -347,7 +347,7 @@ Template adapted from [othneildrew/Best-README-Template](https://github.com/othn
 [license-url]: https://github.com/olmomoreno/arduino_three_joysticks/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: data/images/arduino_three_joysticks.png
+[product-screenshot]: data/images/three_joysticks.gif
 [breadboard-screenshot]: data/images/three_joysticks_bb.jpg
 [schematic-screenshot]: data/images/three_joysticks_schem.jpg
 [processing-shield]: https://img.shields.io/badge/Designed_for-Processing-FFFFFF.svg?style=for-the-badge&logo=processingfoundation
