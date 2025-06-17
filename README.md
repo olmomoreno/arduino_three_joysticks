@@ -113,6 +113,16 @@ This is an interactive Processing and Arduino sketch. It displays three cards in
 | 1️⃣    | 💡 **Arduino UNO R3**        | Main microcontroller board               | [SparkFun Arduino UNO R3](https://www.sparkfun.com/arduino-uno-r3.html) |
 
 
+### 🗺️ Schematic Diagram
+
+This is the breadboard diagram of Arduino UNO Board and the three joysticks designed in Friitzing.
+
+[![Arduino_three_joysticks_bradboard][breadboard-screenshot]](https://github.com/olmomoreno/arduino_three_joysticks)
+
+This is the schematic diagram of Arduino UNO Board and the three joysticks designed in Friitzing.
+
+[![Arduino_three_joysticks_schematic][schematic-screenshot]](https://github.com/olmomoreno/arduino_three_joysticks)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
@@ -338,6 +348,8 @@ Template adapted from [othneildrew/Best-README-Template](https://github.com/othn
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: data/images/arduino_three_joysticks.png
+[breadboard-screenshot]: data/images/three_joysticks_bb.jpg
+[schematic-screenshot]: data/images/three_joysticks_schem.jpg
 [processing-shield]: https://img.shields.io/badge/Designed_for-Processing-FFFFFF.svg?style=for-the-badge&logo=processingfoundation
 [processing_second-shield]: https://img.shields.io/badge/Processing-006699.svg?style=for-the-badge&logo=processingfoundation
 [processing-url]: https://processing.org/
