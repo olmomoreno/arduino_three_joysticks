@@ -65,7 +65,11 @@
       <a href="#-getting-started">Getting Started</a>
       <ul>
         <li><a href="#-installation-processing">Installation (Processing)</a></li>
-         <li><a href="#-opening">Opening</a></li>
+         <li><a href="#-opening-processing">Opening (Processing)</a></li>
+        <li><a href="#-installation-arduino">Installation (Arduino)</a></li>
+        <li><a href="#-opening-arduino">Opening (Arduino)</a></li>
+        <li><a href="#-installation-fritzing">Installation (Fritzing)</a></li>
+        <li><a href="#-opening-fritzing">Opening (Fritzing)</a></li>
       </ul>
     </li>
     <li><a href="#%EF%B8%8F-usage">Usage</a></li>
@@ -133,7 +137,7 @@ Follow these steps to install **Processing** on your computer:
    ```bash
    ./processing
 
-### 📂 Opening
+### 📂 Opening (Processing)
 
 To open the arduino_three_joysticks sketch in Processing:
 
@@ -166,7 +170,7 @@ Follow these steps to install **Arduino IDE** on your computer:
 arduino
 ```
 
-### 📂 Opening
+### 📂 Opening (Arduino)
 
 To open the three_joysticks.ino sketch in Arduino:
 
@@ -204,7 +208,7 @@ tar -xvjf fritzing-*.tar.bz2
 ```bash
 ./Fritzing
 ```
-### 📂 Opening
+### 📂 Opening (Fritzing)
 To open the square_bouncing circuit diagram in Fritzing:
 1. 🧭 Launch the Fritzing application.
 2. 📁 Go to File > Open...
